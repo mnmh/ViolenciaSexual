@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap');
+
+/**** Global Color ***/
+
+:root{
+  --beige: #d8b69d;
+  --dark-green: #2c3f21;
+  --green: #6a7564;
+  --light-green: #b8c7b7;
+  --text-color: #422422;
+  --dark-orange: #a20027;
+  --orange: #f69b02;
+  --brown: #9b6446;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4{
+    font-family: 'Prata', serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+h1, h2{
+  font-size: 7rem;
+}
+
+p, span, a{
+  font-family: 'Mulish', sans-serif;
+}
+
+p{
+  font-size: 2rem;
+  margin: 0;
+  padding: 2vh;
+  line-height: 140%;
+}
+
+section img{
+    width: 100%;
+}
+
+.center{
+  text-align: center;
+}
+
+.credit{
+  font-family: 'Prata', serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/****COLORS TEXT****/
+
+.brown{
+  color: var(--brown);
+}
+
+.white{
+  color: white;
+}
+
+/****CONTAINERS****/
+
+.background-image{
+  position: absolute;
+  min-width: 200%;
+  max-height: 100%;
+  object-fit: contain;
+  left: -100vw;
+}
+
+.container-title{
+  width: 50vw;
+  margin: 0 auto 10vh;
+  padding: 20vh;
+  border-radius: 0% 7% 45% 61% / 39% 34% 66% 61%;
+}
+
+.container-title h1{
+  color: #fff;
+}
+
+.container-title.green{
+  background-color: var(--green);
+}
+
+.envelope{
+  position: relative;
+  max-width: 50%;
+  margin: 10vh;
+}
+
+.envelope.right{
+  margin-left: 20vw;
+}
+
+.envelope img{
+  border-radius: 20px;
+}
+
+.envelope .credit, .credit{
+  bottom: 20px;
+  left: 20px;
+  width: 50%;
+}
+
+.envelope .credit{
+  position: absolute;
+}
+
+.left-container{
+  margin: 40vh 5vw 20vh 20vw;
+}
+
+.testimony{
+  margin: 50vh auto 50vh;
+  max-width: 1400px;
+}
+
+.testimony p{
+  font-family: 'Prata', serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 180%;
+}
+
+.wrapper{
+  position: relative;
+  z-index: 2;
+}
+
+.row{
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+
+/***ELEMENTS***/
+
+.btn-indication{
+  background-color: var(--brown);
+  color: white;
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  padding:20px;
+  border-radius: 50px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.mask{
+    position: absolute !important;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+    left: 0;
+    mask-image: url(../img/mascara-02.png);
+    mask-size: 100% 100%;
+    mask-mode: alpha;
+    mask-repeat: no-repeat;
+    mask-position: 0;
+    -webkit-mask-image: url(../img/mascara-02.png);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    opacity: 1;
+    transition: all 2s ease-in-out;
+    cursor: pointer;
+}
+
+.mask-open{
+    -webkit-mask-size: 200% 400%;
+    mask-size: 200% 400%;
+}
+
+.mask-image{
+    max-width: 300px;
+}
+
+/****AUDIO PLAYER****/
+
+.audio-player {
+    background: transparent;
+    border: 1px solid lighten(#acacac, 20%);
+    max-width: 500px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+  .audio-player .player-controls {
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+  .audio-player progress {
+    width: 90%;
+  }
+  .audio-player progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    color: var(--orange);
+    border: 2px solid var(--white);
+    height: 20px;
+  }
+  .audio-player progress[value]::-webkit-progress-bar {
+    background-color: transparent;
+    border-radius: 2px;
+    border: 1px solid lighten(#acacac, 20%);
+    color: var(--orange);
+  }
+  .audio-player progress::-webkit-progress-value {
+    background-color: var(--orange);
+  }
+  .audio-player p {
+    font-size: 1.6rem;
+  }
+  .audio-player #play-btn {
+      background-image: url('../img/iconoPlay-02.svg');
+      background-size: 200px;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 350px;
+      height: 350px;
+      margin: 40px auto;
+      cursor: pointer;
+  }
+  .audio-player #play-btn.pause {
+    background-image: url('../img/iconoPause-02.svg');
+  }
+  
+  .audio-player.orange #play-btn{
+    background-image: url('../multimedia/svg_iconografia/2_Disposicion_al_Dialogo/iconoPlay-orange.svg');
+  }
+  
+  .audio-player #play-btn.pause {
+    background-image: url('../img/iconoPause-02.svg');
+  }
+  
+  .audio-player.b1:hover, .audio-player.b2:hover, .audio-player.b3:hover, .audio-player.b4:hover, .audio-player.b5:hover, .audio-player.b6:hover, .audio-player.b7:hover, .audio-player.b8:hover{
+    opacity: .6;
+  }
+  
+  .audio-player.b1{
+    right: 2%;
+    bottom: 11%;
+    top: auto;
+    left: auto;
+    margin: 0;
+  }
+  
+  .audio-player.b2{
+    right: 7%;
+    bottom: 5%;
+    top: auto;
+    left: auto;
+    margin: 0;
+  }
+  
+  .audio-player.b3{
+    left: 24.5%;
+    bottom: 5.5%;
+    top: auto;
+    right: auto;
+    margin: 0;
+  }
+  
+  .audio-player.b4{
+    left: 18.6%;
+    bottom: 11.2%;
+    top: auto;
+    right: auto;
+    margin: 0;
+  }
+  
+  .audio-player.b5{
+    left: 18.6%;
+    top: 19%;
+    bottom: auto;
+    right: auto;
+    margin: 0;
+  }
+  
+  .audio-player.b6{
+    left: 24.5%;
+    top: 12.8%;
+    bottom: auto;
+    right: auto;
+    margin: 0;
+  }
+  
+  .audio-player.b7{
+    right: 7.1%;
+    top: 12.8%;
+    bottom: auto;
+    left: auto;
+    margin: 0;
+    background-size: cover;
+  }
+  
+  .audio-player.b8{
+    right: 1.3%;
+    top: 18.8%;
+    bottom: auto;
+    left: auto;
+    margin: 0;
+  }
+  
+  .audio-player.b1 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton1-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  .audio-player.b2 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton2-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  .audio-player.b3 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton3-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  .audio-player.b4 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton4-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  
+  .audio-player.b5 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton5-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  .audio-player.b6 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton6-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  .audio-player.b7 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton7-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  .audio-player.b8 #play-btn{
+    background-image: url('../multimedia/2_Territorios/2_3_CiclosdeVida/1_CalendarioLaChorrera/boton8-01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 350px;
+    height: 350px;
+    margin: 0px auto;
+    cursor: pointer;
+  }
+  
+  .video-container, .video-container1 {
+    overflow: hidden;
+    position: relative;
+    width:100%;
+  }
+  
+  .video-container::after, .video-container1::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+  }
+  
+  .video-container iframe, .video-container1 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  /**** END AUDIO PLAYER ****/
+
+  .btn-reproducir{
+    z-index: 9;
+    position: relative;
+    height: 305px !important;
+    width: 100px !important;
+    background-size: 50px !important;
+  }
+
+
+  /***BUTTERFLY***/
+  
+  #butterfly {
+  transform: rotateZ(-30deg) rotate3d(0, 1, 0, 0deg) scale3d(0.5, 0.5, 0.5);
+  transform-origin: 51% 50%;
+  height: 50vh;
+  transform-style: preserve-3d;
+  position: relative;
+  left: 50% !important;
+  width: 500px;
+  margin-left: -340px;
+  /* top: 69px;
+  /*Fly in a loop below*/
+  /*animation-name: butterflyani;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;*/
+  }
+  
+  .wing {
+  transform: rotateX(30deg) translate3d(-558px, 8px, 0px) rotate3d(0, 1, 0, 160deg);
+  transform-origin: top right;
+  position: absolute;
+  left: 500px;
+  top: 0px;
+  width: 400px;
+  height: 538px;
+  background: url(../img/mariposa-mitad.svg) no-repeat;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  }
+  
+  #butterfly .left{
+  transform: rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+  left: 0px;
+  top: 0px;
+  }
+
+  #butterfly.animation .left{
+    animation-name: leftwingani;
+  }
+
+  #butterfly.animation .right{
+    animation-name: rightwingani;
+  }
+  
+  @keyframes rightwingani {
+      from {
+          transform:rotateX(30deg) translate3d(-501px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+      }
+      50% {
+          transform:rotateX(30deg) translate3d(-501px, 0px, 0px) rotate3d(0, 1, 0, 100deg);
+      }
+      to{
+          transform:rotateX(30deg) translate3d(-501px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+      }
+  }
+  
+  @keyframes leftwingani {
+      from {
+          transform:rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+      }
+      50% {
+          transform:rotateX(30deg) rotate3d(0, 1, 0, 80deg);
+      }
+      to{
+          transform:rotateX(30deg) rotate3d(0, 1, 0, 00deg);
+      }
+  }
+
+  /***IMAGES ZOOM***/
+
+  .container-image{
+    width: 100%;
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+  }
+
+.image {
+	max-width: 500px;
+	cursor: none
+}
+	
+.image a{
+    cursor: none;
+}
+
+.image a img{
+    max-width: 100%;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.zoom{
+	width: 14rem;
+	height: 14rem;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	/* box-shadow: inset 0 0 0 1px #000;*/
+	pointer-events: none;
+	transition: all .25s ease;
+	opacity: 0;
+	transform: scale(0);
+	transform-origin: 50% 50%;
+	overflow: hidden;
+}
+	
+.zoom:before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: none;
+}
+	
+.zoom.show{
+		transform: scale(1);
+		opacity: 1;
+		transition: transform .25s ease, opacity 0s linear;
+	}
+
+		
+.zoom-image {
+    opacity: 1;
+}
+	
+.zoom-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: opacity .25s ease;
+}
+
+section{
+  position: relative;
+}
+
+
+section.axis-1{
+  background-color: var(--beige);
+}
+
+section.axis-2{
+  background-color: var(--light-green);
+}
+
+section.axis-3{
+  background-color: var(--orange);
+}

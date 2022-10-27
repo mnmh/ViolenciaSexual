@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Violencia Sexual</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <link rel='icon' type='image/png' href='images/favicon.png'>
+    <link rel='stylesheet' type='text/css' media='screen' target="_blank" href='css/style.css'>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=ID-GOOGLE"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'ID-GOOGLE');
+</script>
+
+<body style="background-color: #d8b69d; height: 100vh;">
+    <div style="text-align: center;">
+        <div class="audio-player" id="2">
+            <div id="butterfly" class="no-animation">
+                <div class="left wing"></div>
+                <div class="right wing"></div>
+            </div>
+            <div id="play-btn" class="btn-reproducir">
+            </div>
+            <div class="audio-wrapper" id="player-container" href="javascript:;">
+                <audio id="player" class="reproductor-class" ontimeupdate="initProgressBar()">
+                    <source src="audios/Audio_El_silenciamiento_como_estrategia_de_guerra.ogg" type="audio/mp3">
+                </audio>
+            </div>
+            <div class="player-controls scrubber">
+                <span id="seekObjContainer">
+                    <progress id="seekObj" class="seekObj" value="0" max="1"></progress>
+                </span>
+                <br>
+            </div>
+        </div>
+        <div class="image">
+            <a href="" target="_blank">
+                <img src="" alt="">
+            </a>
+        </div>
+        
+        <div class="zoom">
+            <img class="zoom-image" src="" alt="">
+        </div>
+        <div class="mask">
+            <img class="mask-image" src="img/1_Los_ciclosquenoserompen/carta_24-1.jpg">
+        </div>
+
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+<script src="js/audioplayer.js"></script>
+<script src='js/functions.js'></script>
+
+</html>
