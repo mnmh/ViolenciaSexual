@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31">
+  <g id="film" transform="translate(-1.5 -1.5)">
+    <rect id="Rectángulo_97" data-name="Rectángulo 97" width="30" height="30" rx="2.18" transform="translate(2 2)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Línea_1" data-name="Línea 1" y2="30" transform="translate(10 2)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Línea_2" data-name="Línea 2" y2="30" transform="translate(25 2)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Línea_3" data-name="Línea 3" x2="30" transform="translate(2 17)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Línea_4" data-name="Línea 4" x2="8" transform="translate(2 10)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Línea_5" data-name="Línea 5" x2="8" transform="translate(2 25)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Línea_6" data-name="Línea 6" x2="7" transform="translate(25 25)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Línea_7" data-name="Línea 7" x2="7" transform="translate(25 10)" fill="none" stroke="#2c572c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>
