@@ -63,9 +63,13 @@ section img{
   font-family: 'Prata', serif !important;
   font-size: 16px !important;
   font-weight: 400 !important;
-  width: calc(100% - 80px);
+  width: calc(100% - 81px);
   display: inline-block;
   vertical-align: middle;
+}
+
+.credit.white p{
+  color: white !important;
 }
 
 .credit.full-width{
@@ -113,8 +117,23 @@ section img{
   mask-image: url(../img/iconos/icono_escrito.svg);
 }
 
+.icon.icon-video::before{
+  width: 40px;
+  height: 38px;
+  -webkit-mask-image: url(../img/iconos/icono_video.svg);
+  mask-image: url(../img/iconos/icono_video.svg);
+}
+
 .white .icon::before{
   background-color: white;
+}
+
+.dark-green .icon::before{
+  background-color: var(--dark-green);
+}
+
+.violet .icon::before{
+  background-color: var(--violet);
 }
 
 .mw-600{
@@ -1265,4 +1284,8 @@ section.axis-3{
   background-color: var(--orange);
   overflow: hidden;
   position: relative;
+}
+
+.axis-1{
+  display: none;
 }
