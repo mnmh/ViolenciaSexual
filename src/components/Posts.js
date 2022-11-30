@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import parse from 'html-react-parser';
 
 class App extends React.Component {
   state = {
@@ -16,11 +17,13 @@ class App extends React.Component {
     
     return (
       <>
-        <ul>
+          <hr></hr>
           {this.state.posts.map(post => (
-            <li key={post.id}>{post.title.rendered}</li>
+            <section key={post.id}>
+              <h1>{post.id}</h1>
+                {parse(post.content.rendered)}
+            </section>
           ))}
-        </ul>
       </>   
     );    
   }
