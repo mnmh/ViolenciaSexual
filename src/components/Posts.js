@@ -20,7 +20,7 @@ class App extends React.Component {
           <hr></hr>
           {this.state.posts.map(post => (
             <section key={post.id}>
-              <h1>{post.id}</h1>
+              <h1>{post.id} - {post.title.rendered}</h1>
                 {parse(post.content.rendered)}
             </section>
           ))}
