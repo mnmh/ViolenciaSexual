@@ -23,7 +23,11 @@ export default class App extends Component {
         const content = parse(data.content.rendered);
         this.setState({ title });
         this.setState({ content });
-        console.log(data);
+        content.forEach((bloque) => {
+          if (bloque.props !== undefined) {
+            console.log(bloque.props);
+          }
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -37,6 +41,7 @@ export default class App extends Component {
     return (
       <>
         <h1>{this.state.title}</h1>
+        <hr></hr>
         {this.state.content}
       </>
     );
