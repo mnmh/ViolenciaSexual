@@ -25,7 +25,7 @@ export default class App extends Component {
         this.setState({ content });
         content.forEach((bloque) => {
           if (bloque.props !== undefined) {
-            console.log(bloque.props);
+            console.log(bloque.props.children);
           }
         });
       })
