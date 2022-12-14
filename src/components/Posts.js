@@ -1,31 +1,24 @@
-import React from "react";
-import axios from "axios";
-import parse from 'html-react-parser';
+import React from 'react';
+//import parse from 'html-react-parser';
+import useApiWPRequest from '../apis/Wordpress';
+//import Button from './atoms/Button';
 
-class App extends React.Component {
-  state = {
-    posts: []
-  };
-  componentDidMount() {
-    axios.get("https://museodememoria.gov.co/wp-json/wp/v2/posts").then(response => {
-      const posts = response.data;
-      this.setState({ posts });
-      //debugger;
-    });
-  }
-  render() {
-    
-    return (
-      <>
-          <hr></hr>
-          {this.state.posts.map(post => (
-            <section key={post.id}>
-              <h1>{post.id} - {post.title.rendered}</h1>
-                {parse(post.content.rendered)}
-            </section>
-          ))}
-      </>   
-    );    
-  }
-}
-export default App;
+const url = 'https://museodememoria.gov.co/wp-json/wp/v2/posts';
+const page = '';
+
+const Posts = () => {
+  return (
+    <>
+      <h1>Posts recientes</h1>
+      {/* <Button customClass={'large'} text={'Hola'} /> */}
+      {useApiWPRequest(url, page).data.map((block) => (
+        <section key={block.id}>
+          <div className='post'>
+            {block.id} - {block.title.rendered}
+          </div>
+        </section>
+      ))}
+    </>
+  );
+};
+export default Posts;

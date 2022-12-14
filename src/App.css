@@ -24,7 +24,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #9b6446;
+  background-color: #d8b69d;
   color: #422422;
 }
 body body {
@@ -67,5 +67,20 @@ body p {
 .App figure img {
   width: 100%;
   height: auto;
+}
+.App .post {
+  padding: 20px 0;
+  border-bottom: 1px solid #6a7564;
+}
+.App .bloque {
+  border: 1px dotted #6a7564;
+  margin: 5px;
+}
+.App .bloque code.id {
+  display: list-item;
+  color: #a20027;
+  background-color: azure;
+  position: relative;
+  padding: 1px 3px;
 }
 /*# sourceMappingURL=App.css.map */
