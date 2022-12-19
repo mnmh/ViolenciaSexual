@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
+import { Modal } from '../molecules/Modal';
 
 const url = 'https://museodememoria.gov.co/wp-json/wp/v2/pages';
-const page = '14856';
+const page = '14941';
 
 class Page extends React.Component {
   state = {
@@ -17,10 +18,10 @@ class Page extends React.Component {
       const blocks = parse(response.data.content.rendered);
       const title = parse(response.data.title.rendered);
       this.setState({ blocks, title });
-      console.log('blocks: ' + blocks);
     });
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    console.log(this.state);
   }
 
   showModal = () => {
@@ -44,6 +45,13 @@ class Page extends React.Component {
             </div>
           )
         )}
+        <code>React Modal</code>
+        <Modal show={this.state.show} handleClose={this.hideModal}>
+          <p>Modal</p>
+        </Modal>
+        <button type='button' onClick={this.showModal}>
+          Open
+        </button>
       </>
     );
   }
