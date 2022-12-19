@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Page from './components/Page';
-import { Modal } from './components/organisms/modal';
+import Page from './components/organisms/Page';
+import { Modal } from './components/molecules/Modal';
 import ViolenciaSexual from './components/templates/ViolenciaSexual';
 
 class App extends Component {
