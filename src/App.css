@@ -1,86 +1,129 @@
-@font-face {
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexc1RwaA.ttf) format('truetype');
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-@font-face {
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexU1WwaA.ttf) format('truetype');
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
-@font-face {
-  font-family: 'Prata';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/prata/v18/6xKhdSpbNNCT-vWI.ttf) format('truetype');
-}
-/**** Global Color ***/
 body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: #d8b69d;
-  color: #422422;
+  line-height: 1;
 }
-body body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+ol,
+ul {
+  list-style: none;
 }
-body .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
+blockquote,
+q {
+  quotes: none;
 }
-body h1,
-body h2,
-body h3,
-body h4 {
-  font-family: 'Prata', serif;
-  font-weight: 400;
-  margin: 0;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
-body h1,
-body h2 {
-  font-size: 7rem;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-body p,
-body span,
-body a {
-  font-family: 'Mulish', sans-serif;
-}
-body p {
-  font-size: 2rem;
-  margin: 0;
-  padding: 2vh;
-  line-height: 140%;
-}
-.App {
-  max-width: 90vw;
-  margin: 0 auto;
-}
-.App figure img {
-  width: 100%;
-  height: auto;
-}
-.App .post {
-  padding: 20px 0;
-  border-bottom: 1px solid #6a7564;
-}
-.App .bloque {
-  border: 1px dotted #6a7564;
-  margin: 5px;
-}
-.App .bloque code.id {
-  display: list-item;
-  color: #a20027;
-  background-color: azure;
-  position: relative;
-  padding: 1px 3px;
-}
-/*# sourceMappingURL=App.css.map */

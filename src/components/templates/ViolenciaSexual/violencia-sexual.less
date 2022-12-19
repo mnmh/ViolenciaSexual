@@ -10,6 +10,7 @@
 @orange: #f69b02;
 @brown: #9b6446;
 @violet: #3f2771;
+@white: #ffffff;
 
 body {
   margin: 0;
@@ -17,6 +18,7 @@ body {
   overflow-x: hidden;
   background-color: @beige;
   color: @text-color;
+  font-size: 12px;
   body {
     margin: 0;
     padding: 0;
@@ -38,9 +40,15 @@ body {
     margin: 0;
   }
 
-  h1,
+  h1 {
+    font-size: 4rem;
+  }
   h2 {
-    font-size: 7rem;
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
   }
 
   p,
@@ -50,7 +58,7 @@ body {
   }
 
   p {
-    font-size: 2rem;
+    font-size: 1rem;
     margin: 0;
     padding: 2vh;
     line-height: 140%;
@@ -68,14 +76,51 @@ body {
     border-bottom: 1px solid @green;
   }
   .bloque {
-    border: 1px dotted @green;
     margin: 5px;
     code.id {
-      display: list-item;
+      display: none;
       color: @dark-orange;
       background-color: azure;
-      position: relative;
+      position: absolute;
       padding: 1px 3px;
     }
+    &:hover {
+      background-color: @light-green;
+      code.id {
+        display: block;
+      }
+      animation: all 2s infinite;
+    }
   }
+  .wp-block-button {
+    &.info {
+      background-color: @brown;
+      width: max-content;
+      padding: 8px 30px;
+      margin: 0 auto;
+      color: @white;
+      font-size: 1.1rem;
+      border-radius: 15px;
+    }
+  }
+}
+
+// Micro devices (landscape phones, less than 576px)
+@media (max-width: 575.98px) {
+  //...;
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  //...;
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  //...;
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  //...;
 }
