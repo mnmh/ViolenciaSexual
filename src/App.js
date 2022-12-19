@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Page from './components/organisms/Page';
 import ViolenciaSexual from './components/templates/ViolenciaSexual';
-
+import './App.css';
 class App extends Component {
   constructor() {
     super();

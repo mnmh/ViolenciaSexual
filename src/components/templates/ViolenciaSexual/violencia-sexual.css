@@ -81,20 +81,6 @@ body p {
 .App .bloque {
   margin: 5px;
 }
-.App .bloque code.id {
-  display: none;
-  color: #a20027;
-  background-color: azure;
-  position: absolute;
-  padding: 1px 3px;
-}
-.App .bloque:hover {
-  background-color: #b8c7b7;
-  animation: all 2s infinite;
-}
-.App .bloque:hover code.id {
-  display: block;
-}
 .App .wp-block-button.info {
   background-color: #9b6446;
   width: max-content;

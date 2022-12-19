@@ -18,10 +18,10 @@ class Page extends React.Component {
       const blocks = parse(response.data.content.rendered);
       const title = parse(response.data.title.rendered);
       this.setState({ blocks, title });
+      console.log(this.state);
     });
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
-    console.log(this.state);
   }
 
   showModal = () => {
