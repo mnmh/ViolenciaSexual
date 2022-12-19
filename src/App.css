@@ -3,7 +3,7 @@ code {
   color: rgba(0, 255, 0, 0.7);
   background-color: #000000;
   padding: 5px;
-  display: inline-block;
+  display: block;
 }
 .bloque {
   margin: 5px;
