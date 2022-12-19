@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexc1RwaA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexU1WwaA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Prata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/prata/v18/6xKhdSpbNNCT-vWI.ttf) format('truetype');
+}
+/**** Global Color ***/
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #d8b69d;
+  color: #422422;
+  font-size: 12px;
+}
+body body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+  font-family: 'Prata', serif;
+  font-weight: 400;
+  margin: 0;
+}
+body h1 {
+  font-size: 4rem;
+}
+body h2 {
+  font-size: 3rem;
+}
+body h3 {
+  font-size: 2rem;
+}
+body p,
+body span,
+body a {
+  font-family: 'Mulish', sans-serif;
+}
+body p {
+  font-size: 1rem;
+  margin: 0;
+  padding: 2vh;
+  line-height: 140%;
+}
+.App {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+.App figure img {
+  width: 100%;
+  height: auto;
+}
+.App .post {
+  padding: 20px 0;
+  border-bottom: 1px solid #6a7564;
+}
+.App .bloque {
+  margin: 5px;
+}
+.App .wp-block-button.info {
+  background-color: #9b6446;
+  width: max-content;
+  padding: 8px 30px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 1.1rem;
+  border-radius: 15px;
+}
+@media (max-width: 575.98px) {
+}
+@media (max-width: 767.98px) {
+}
+@media (max-width: 991.98px) {
+}
+@media (max-width: 1199.98px) {
+}
+/*# sourceMappingURL=violencia-sexual.css.map */

@@ -1,0 +1,30 @@
+/* dev styles */
+
+code {
+  color: rgba(0, 255, 0, 0.7);
+  background-color: rgba(0, 0, 0, 1);
+  padding: 5px;
+  display: inline-block;
+}
+
+.bloque {
+  margin: 5px;
+  code.id {
+    display: none;
+    color: white;
+    background-color: red;
+    position: absolute;
+    padding: 1px 3px;
+    width: fit-content;
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+    outline: 1px dashed red;
+    code.id {
+      display: block;
+    }
+  }
+}
