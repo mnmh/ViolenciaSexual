@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Page from './components/organisms/Page';
-import ViolenciaSexual from './components/templates/ViolenciaSexual';
+import Template from './components/templates/DynamicStyle';
 import './App.css';
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <ViolenciaSexual />
+        <Template />
         <Page />
       </div>
     );

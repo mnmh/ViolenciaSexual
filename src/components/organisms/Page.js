@@ -4,7 +4,7 @@ import parse, { Element } from 'html-react-parser';
 import { Modal } from '../molecules/Modal';
 
 const queryParams = new URLSearchParams(window.location.search);
-const page = queryParams.get('page');
+const pagina = queryParams.get('pagina');
 
 const url = 'https://museodememoria.gov.co/wp-json/wp/v2/pages';
 
@@ -33,7 +33,7 @@ class Page extends React.Component {
     type: '',
   };
   componentDidMount() {
-    axios.get(url + '/' + page).then((response) => {
+    axios.get(url + '/' + pagina).then((response) => {
       const blocks = parser(response.data.content.rendered);
       const title = parser(response.data.title.rendered);
       const type = response.data.type;
