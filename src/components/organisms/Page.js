@@ -3,8 +3,10 @@ import axios from 'axios';
 import parse, { Element } from 'html-react-parser';
 import { Modal } from '../molecules/Modal';
 
+const queryParams = new URLSearchParams(window.location.search);
+const page = queryParams.get('page');
+
 const url = 'https://museodememoria.gov.co/wp-json/wp/v2/pages';
-const page = '14941';
 
 const parser = (input) =>
   parse(input, {
