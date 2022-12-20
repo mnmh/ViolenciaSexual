@@ -21,21 +21,27 @@ const parser = (input) =>
     },
   });
 
+const parsear = (input) =>
+  parse(input, {
+    trim: true,
+  });
+
 class Page extends React.Component {
   state = {
     blocks: [],
     title: '',
-    obj: '',
+    type: '',
   };
   componentDidMount() {
     axios.get(url + '/' + page).then((response) => {
       const blocks = parser(response.data.content.rendered);
       const title = parser(response.data.title.rendered);
-      const obj = parser(response.data.content.rendered);
+      const type = response.data.type;
 
-      this.setState({ blocks, title, obj });
-      console.log(blocks[17].props.className);
-      console.log(obj);
+      this.setState({ blocks, title, type });
+      console.log(blocks[26].props.className);
+      console.log(type);
+      console.log(parsear(response.data.content.rendered));
     });
 
     this.showModal = this.showModal.bind(this);
@@ -58,7 +64,7 @@ class Page extends React.Component {
           switch (type) {
             case undefined:
               return '';
-            case 'div':
+            case 'figure':
               return (
                 <div className='bloque' key={i}>
                   <code className={'bloque: ' + i}>bloque:{i}</code>
