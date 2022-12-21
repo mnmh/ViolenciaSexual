@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
-import Page, { pagina } from "../organisms/Page";
 
 const queryParams = new URLSearchParams(window.location.search);
 const plantilla = queryParams.get("plantilla");

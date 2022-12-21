@@ -1,12 +1,12 @@
-import React from 'react';
-import axios from 'axios';
-import parse, { Element } from 'html-react-parser';
-import { Modal } from '../molecules/Modal';
+import React from "react";
+import axios from "axios";
+import parse, { Element } from "html-react-parser";
+import { Modal } from "../molecules/Modal";
 
 const queryParams = new URLSearchParams(window.location.search);
-const pagina = queryParams.get('pagina');
+const pagina = queryParams.get("pagina");
 
-const url = 'https://museodememoria.gov.co/wp-json/wp/v2/pages';
+const url = "https://museodememoria.gov.co/wp-json/wp/v2/pages";
 
 const parser = (input) =>
   parse(input, {
@@ -14,7 +14,7 @@ const parser = (input) =>
     replace: (domNode) => {
       if (
         domNode instanceof Element &&
-        domNode.attribs.class === 'imagen-modal'
+        domNode.attribs.class === "imagen-modal"
       ) {
         return <></>;
       }
@@ -29,18 +29,18 @@ const parsear = (input) =>
 class Page extends React.Component {
   state = {
     blocks: [],
-    title: '',
-    type: '',
+    title: "",
+    type: "",
   };
   componentDidMount() {
-    axios.get(url + '/' + pagina).then((response) => {
+    axios.get(url + "/" + pagina).then((response) => {
       const blocks = parser(response.data.content.rendered);
       const title = parser(response.data.title.rendered);
       const type = response.data.type;
 
       this.setState({ blocks, title, type });
       console.log(blocks[26].props.className);
-      console.log(type);
+      console.log(blocks[0].props.id);
       console.log(parsear(response.data.content.rendered));
     });
 
@@ -59,33 +59,44 @@ class Page extends React.Component {
   render() {
     return (
       <>
-        {this.state.blocks.map((block, i) => {
-          let type = block.type;
-          switch (type) {
-            case undefined:
-              return '';
-            case 'figure':
+        <div className="container">
+          {this.state.blocks.map((block, i) => {
+            let id = block.props.id;
+            //let className = block.props.className;
+            if (!id) {
               return (
-                <div className='bloque' key={i}>
-                  <code className={'bloque: ' + i}>bloque:{i}</code>
+                <div className="bloque noid" key={i}>
+                  <code className="id">posición:{i}</code>
                   {block}
                 </div>
               );
-            default:
-              return (
-                <code className={'bloque: ' + i} key={i}>
-                  bloque:{i}
-                </code>
-              );
-          }
-        })}
-        <code>React Modal</code>
-        <Modal show={this.state.show} handleClose={this.hideModal}>
-          <p>Modal</p>
-        </Modal>
-        <button type='button' onClick={this.showModal}>
-          Open
-        </button>
+            } else {
+              switch (id) {
+                case "intro":
+                  return (
+                    <div className="bloque conid" key={i}>
+                      <code className="id">posición:{i}</code>
+                      {block}
+                    </div>
+                  );
+                default:
+                  return (
+                    <div className="bloque default" key={i}>
+                      <code className="id">posición:{i}</code>
+                      {block}
+                    </div>
+                  );
+              }
+            }
+          })}
+          <code>React Modal</code>
+          <Modal show={this.state.show} handleClose={this.hideModal}>
+            <p>Modal</p>
+          </Modal>
+          <button type="button" onClick={this.showModal}>
+            Open
+          </button>
+        </div>
       </>
     );
   }

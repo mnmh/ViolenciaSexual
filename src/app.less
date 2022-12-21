@@ -2,9 +2,14 @@
 
 code {
   color: rgba(0, 255, 0, 0.7);
-  background-color: rgba(0, 0, 0, 1);
   padding: 5px;
-  display: block;
+  display: none;
+  &[class*="bloque"] {
+    background-color: red;
+    color: black;
+    width: max-content;
+    position: absolute;
+  }
 }
 
 .bloque {
@@ -23,7 +28,7 @@ code {
     -ms-transition: background-color 200ms linear;
     transition: background-color 200ms linear;
     outline: 1px dashed red;
-    code.id {
+    code {
       display: block;
     }
   }
