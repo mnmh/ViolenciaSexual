@@ -3,6 +3,15 @@ import axios from "axios";
 import parse, { Element } from "html-react-parser";
 import { Modal } from "../molecules/Modal";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+// import required modules
+import { Pagination } from "swiper";
+
+// Import Swiper styles
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import "./Swiper/styles.css";
+
 const queryParams = new URLSearchParams(window.location.search);
 const pagina = queryParams.get("pagina");
 
@@ -72,12 +81,25 @@ class Page extends React.Component {
               );
             } else {
               switch (id) {
-                case "intro":
+                case "slider-intro":
                   return (
-                    <div className="bloque conid" key={i}>
-                      <code className="id">posición:{i}</code>
-                      {block}
-                    </div>
+                    <>
+                      {/* <!-- Slider main container --> */}
+                      <Swiper
+                        direction={"vertical"}
+                        loop={false}
+                        pagination={{
+                          clickable: false,
+                        }}
+                        spaceBetween={0}
+                        slidesPerView={1}
+                        modules={[Pagination]}
+                        onSlideChange={() => console.log("slide change")}
+                        onSwiper={(swiper) => console.log(swiper)}
+                      >
+                        <SwiperSlide>{block}</SwiperSlide>
+                      </Swiper>
+                    </>
                   );
                 default:
                   return (

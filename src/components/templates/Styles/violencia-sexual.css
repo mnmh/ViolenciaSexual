@@ -79,6 +79,7 @@ body p {
 }
 .App .bloque {
   margin: 5px;
+  padding: 20px;
 }
 .App .wp-block-button.info {
   background-color: #9b6446;
