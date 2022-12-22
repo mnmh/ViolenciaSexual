@@ -42,7 +42,7 @@ body h1,
 body h2,
 body h3,
 body h4 {
-  font-family: "Prata", serif;
+  font-family: 'Prata', serif;
   font-weight: 400;
   margin: 0;
 }
@@ -58,7 +58,7 @@ body h3 {
 body p,
 body span,
 body a {
-  font-family: "Mulish", sans-serif;
+  font-family: 'Mulish', sans-serif;
 }
 body p {
   font-size: 1rem;
@@ -106,22 +106,40 @@ body .sociales {
   font-size: 1.1rem;
   border-radius: 15px;
 }
-.swiper a.wp-block-button__link {
+.swiper.intro {
+  background: #7a157d;
+}
+.swiper.intro .bgAnimated {
+  position: absolute;
+  right: 44vw;
+  width: 100vw;
+  height: auto;
+}
+@media (max-width: 1199.98px) {
+  .swiper.intro .bgAnimated {
+    right: 60px;
+  }
+}
+@media (max-width: 767.98px) {
+  .swiper.intro .bgAnimated {
+    bottom: 0vh;
+  }
+}
+.swiper.intro a.wp-block-button__link {
   color: white;
   text-decoration: none;
 }
-.swiper .swiper-slide {
+.swiper.intro .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #7a157d;
   color: #fff;
 }
-@media (max-width: 575.98px) {
+@media (min-width: 576px) {
 }
-@media (max-width: 767.98px) {
+@media (min-width: 768px) {
 }
-@media (max-width: 991.98px) {
+@media (min-width: 992px) {
 }
-@media (max-width: 1199.98px) {
+@media (min-width: 1200px) {
 }
 /*# sourceMappingURL=violencia-sexual.css.map */

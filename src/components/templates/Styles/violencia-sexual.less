@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap');
 
 /**** Global Color ***/
 @beige: #d8b69d;
@@ -36,7 +36,7 @@ body {
   h2,
   h3,
   h4 {
-    font-family: "Prata", serif;
+    font-family: 'Prata', serif;
     font-weight: 400;
     margin: 0;
   }
@@ -55,7 +55,7 @@ body {
   p,
   span,
   a {
-    font-family: "Mulish", sans-serif;
+    font-family: 'Mulish', sans-serif;
   }
 
   p {
@@ -111,7 +111,20 @@ body {
 }
 
 // BLOQUES SWIPER
-.swiper {
+.swiper.intro {
+  .bgAnimated {
+    position: absolute;
+    right: 44vw;
+    width: 100vw;
+    height: auto;
+    @media (max-width: 1199.98px) {
+      right: 60px;
+    }
+    @media (max-width: 767.98px) {
+      bottom: 0vh;
+    }
+  }
+  background: #7a157d;
   a.wp-block-button__link {
     color: white;
     text-decoration: none;
@@ -119,30 +132,29 @@ body {
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #7a157d;
+
     color: #fff;
   }
 
   .swiper-slide img {
   }
 }
-
-// Micro devices (landscape phones, less than 576px)
-@media (max-width: 575.98px) {
-  //...;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  //...
 }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) {
-  //...;
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  //...
 }
 
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) {
-  //...;
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  //...
 }
 
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {
-  //...;
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  //...
 }
