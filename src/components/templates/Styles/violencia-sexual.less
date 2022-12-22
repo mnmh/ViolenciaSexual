@@ -64,6 +64,24 @@ body {
     padding: 2vh;
     line-height: 140%;
   }
+
+  // hacks estilos por defecto wordpressv
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .item {
+    position: relative;
+    display: contents;
+  }
+  .wp-block-embed-youtube iframe {
+    max-width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+  .sociales {
+    display: none;
+  }
 }
 .App {
   margin: 0 auto;
@@ -89,6 +107,23 @@ body {
       font-size: 1.1rem;
       border-radius: 15px;
     }
+  }
+}
+
+// BLOQUES SWIPER
+.swiper {
+  a.wp-block-button__link {
+    color: white;
+    text-decoration: none;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #7a157d;
+    color: #fff;
+  }
+
+  .swiper-slide img {
   }
 }
 

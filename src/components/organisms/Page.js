@@ -48,9 +48,9 @@ class Page extends React.Component {
       const type = response.data.type;
 
       this.setState({ blocks, title, type });
-      console.log(blocks[26].props.className);
-      console.log(blocks[0].props.id);
-      console.log(parsear(response.data.content.rendered));
+      //console.log(blocks[26].props.className);
+      //console.log(blocks[0].props.id);
+      //console.log(parsear(response.data.content.rendered));
     });
 
     this.showModal = this.showModal.bind(this);
