@@ -1,21 +1,20 @@
-import React from 'react';
-import axios from 'axios';
-import parse, { Element } from 'html-react-parser';
-import { Modal } from '../molecules/Modal';
+import React from "react";
+import axios from "axios";
+import parse, { Element } from "html-react-parser";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-// import required modules
-import { Pagination } from 'swiper';
+// Core modules imports are same as usual
+import { Pagination } from "swiper";
+// Direct React component imports
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 
-// Import Swiper styles
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
-import './Swiper/styles.css';
+// Styles must use direct files imports
+import "./Swiper/swiper.css"; // core Swiper
+import "./Swiper/pagination/pagination.min.css"; // Pagination module
 
 const queryParams = new URLSearchParams(window.location.search);
-const pagina = queryParams.get('pagina');
+const pagina = queryParams.get("pagina");
 
-const url = 'https://museodememoria.gov.co/wp-json/wp/v2/pages';
+const url = "https://museodememoria.gov.co/wp-json/wp/v2/pages";
 
 const parser = (input) =>
   parse(input, {
@@ -23,7 +22,7 @@ const parser = (input) =>
     replace: (domNode) => {
       if (
         domNode instanceof Element &&
-        domNode.attribs.class === 'imagen-modal'
+        domNode.attribs.class === "imagen-modal"
       ) {
         return <></>;
       }
@@ -33,11 +32,11 @@ const parser = (input) =>
 class Page extends React.Component {
   state = {
     blocks: [],
-    title: '',
-    type: '',
+    title: "",
+    type: "",
   };
   componentDidMount() {
-    axios.get(url + '/' + pagina).then((response) => {
+    axios.get(url + "/" + pagina).then((response) => {
       const blocks = parser(response.data.content.rendered);
       const title = parser(response.data.title.rendered);
       const type = response.data.type;
@@ -63,64 +62,27 @@ class Page extends React.Component {
   render() {
     return (
       <>
-        <div className='container'>
-          {this.state.blocks.map((block, i) => {
-            let id = block.props.id;
-            //let className = block.props.className;
-            if (!id) {
-              return (
-                <div className='bloque noid' key={i}>
-                  <code className='id'>posición:{i}</code>
-                  {block}
-                </div>
-              );
-            } else {
-              switch (id) {
-                case 'slider-intro':
-                  return (
-                    <>
-                      {/* <!-- Slider main container --> */}
-
-                      <Swiper
-                        className={'intro'}
-                        direction={'vertical'}
-                        loop={false}
-                        pagination={{
-                          clickable: false,
-                        }}
-                        spaceBetween={0}
-                        slidesPerView={1}
-                        modules={[Pagination]}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
-                      >
-                        <SwiperSlide>{block}</SwiperSlide>
-                        <div className='bgAnimated'>
-                          <img
-                            alt='bg'
-                            src='https://museodememoria.gov.co/wp-content/uploads/2022/12/path-8332.png'
-                          />
-                        </div>
-                      </Swiper>
-                    </>
-                  );
-                default:
-                  return (
-                    <div className='bloque default' key={i}>
-                      <code className='id'>posición:{i}</code>
-                      {block}
-                    </div>
-                  );
-              }
-            }
-          })}
-          <code>React Modal</code>
-          <Modal show={this.state.show} handleClose={this.hideModal}>
-            <p>Modal</p>
-          </Modal>
-          <button type='button' onClick={this.showModal}>
-            Open
-          </button>
+        <div className="container">
+          <Swiper
+            direction={"vertical"}
+            loop={false}
+            spaceBetween={0}
+            slidesPerView={1}
+            modules={[Pagination]}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: 5,
+              type: "bullets",
+            }}
+            scrollbar={{ draggable: false }}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {this.state.blocks.map((block, i) => (
+              <SwiperSlide key={block.key}>{block}</SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </>
     );

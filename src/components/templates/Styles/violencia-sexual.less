@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap");
 
 /**** Global Color ***/
 @beige: #d8b69d;
@@ -36,7 +36,7 @@ body {
   h2,
   h3,
   h4 {
-    font-family: 'Prata', serif;
+    font-family: "Prata", serif;
     font-weight: 400;
     margin: 0;
   }
@@ -55,7 +55,7 @@ body {
   p,
   span,
   a {
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
   }
 
   p {
@@ -111,7 +111,11 @@ body {
 }
 
 // BLOQUES SWIPER
-.swiper.intro {
+.swiper {
+  #slider-intro {
+    color: @white;
+    background: #7a157d;
+  }
   .bgAnimated {
     position: absolute;
     right: 44vw;
@@ -124,19 +128,20 @@ body {
       bottom: 0vh;
     }
   }
-  background: #7a157d;
+
   a.wp-block-button__link {
-    color: white;
     text-decoration: none;
   }
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-
+    height: 100vh;
     color: #fff;
   }
 
   .swiper-slide img {
+    width: 100%;
+    height: auto;
   }
 }
 // Small devices (landscape phones, 576px and up)
