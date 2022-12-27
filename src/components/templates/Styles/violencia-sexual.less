@@ -17,7 +17,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: @beige;
   color: @text-color;
   font-size: 12px;
   body {
@@ -82,6 +81,16 @@ body {
   .sociales {
     display: none;
   }
+  .mt-50 {
+    margin-top: 50px;
+  }
+  pre {
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  }
 }
 .App {
   margin: 0 auto;
@@ -112,9 +121,23 @@ body {
 
 // BLOQUES SWIPER
 .swiper {
+  background-color: @beige;
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 100vh;
+    width: 130%;
+    height: 200%;
+    background-size: cover;
+    background-position: top;
+}
+  }
   #slider-intro {
     color: @white;
-    background: #7a157d;
+    background-color: @lila;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
   }
   .bgAnimated {
     position: absolute;
@@ -136,7 +159,6 @@ body {
     text-align: center;
     font-size: 18px;
     height: 100vh;
-    color: #fff;
   }
 
   .swiper-slide img {

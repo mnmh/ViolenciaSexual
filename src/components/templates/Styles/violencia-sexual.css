@@ -24,7 +24,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #d8b69d;
   color: #422422;
   font-size: 12px;
 }
@@ -82,6 +81,21 @@ body .wp-block-embed-youtube iframe {
 body .sociales {
   display: none;
 }
+body .mt-50 {
+  margin-top: 50px;
+}
+body pre {
+  white-space: pre-wrap;
+  /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
 .App {
   margin: 0 auto;
 }
@@ -106,9 +120,25 @@ body .sociales {
   font-size: 1.1rem;
   border-radius: 15px;
 }
+.swiper {
+  background-color: #d8b69d;
+}
+.swiper .parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 100vh;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: top;
+}
 .swiper #slider-intro {
   color: #ffffff;
-  background: #7a157d;
+  background-color: #7a157d;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
 }
 .swiper .bgAnimated {
   position: absolute;
@@ -133,7 +163,6 @@ body .sociales {
   text-align: center;
   font-size: 18px;
   height: 100vh;
-  color: #fff;
 }
 .swiper .swiper-slide img {
   width: 100%;

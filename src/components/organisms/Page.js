@@ -3,11 +3,11 @@ import axios from "axios";
 import parse, { Element } from "html-react-parser";
 
 // Core modules imports are same as usual
-import { Pagination } from "swiper";
+import { Parallax, Pagination } from "swiper";
 // Direct React component imports
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
 
-// Styles must use direct files imports
+// Swiper
 import "./Swiper/swiper.css"; // core Swiper
 import "./Swiper/pagination/pagination.min.css"; // Pagination module
 
@@ -69,18 +69,32 @@ class Page extends React.Component {
             spaceBetween={0}
             slidesPerView={1}
             cssMode={true}
-            modules={[Pagination]}
+            parallax={true}
+            modules={[Parallax, Pagination]}
             pagination={{
               clickable: true,
               dynamicBullets: true,
               dynamicMainBullets: 5,
               type: "bullets",
             }}
-            onSlideChange={() => console.log("slide change")}
+            onSlideChange={(swiper) =>
+              console.log("bloque: " + swiper.realIndex)
+            }
             onSwiper={(swiper) => console.log(swiper)}
           >
+            <div
+              slot="container-start"
+              className="parallax-bg"
+              style={{
+                backgroundImage:
+                  "url(https://museodememoria.gov.co/wp-content/uploads/2022/12/cuerpo.png)",
+              }}
+              data-swiper-parallax="-100%"
+            ></div>
             {this.state.blocks.map((block, i) => (
-              <SwiperSlide key={block.key}>{block}</SwiperSlide>
+              <SwiperSlide key={block.key}>
+                <div className="block-container mt-50">{block}</div>
+              </SwiperSlide>
             ))}
           </Swiper>
         </div>
