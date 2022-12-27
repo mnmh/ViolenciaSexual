@@ -68,6 +68,7 @@ class Page extends React.Component {
             loop={false}
             spaceBetween={0}
             slidesPerView={1}
+            cssMode={true}
             modules={[Pagination]}
             pagination={{
               clickable: true,
@@ -75,7 +76,6 @@ class Page extends React.Component {
               dynamicMainBullets: 5,
               type: "bullets",
             }}
-            scrollbar={{ draggable: false }}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
