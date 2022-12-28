@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import parse, { Element } from "html-react-parser";
+import Lightbox from "./Lightbox";
 
 // Core modules imports are same as usual
 import { Parallax, Pagination } from "swiper";
@@ -43,7 +44,7 @@ class Page extends React.Component {
 
       this.setState({ blocks, title, type });
       //console.log(blocks[26].props.className);
-      console.log(blocks);
+      console.log(blocks[8]);
       //console.log(parsear(response.data.content.rendered));
     });
 
@@ -80,7 +81,7 @@ class Page extends React.Component {
             onSlideChange={(swiper) =>
               console.log("bloque: " + swiper.realIndex)
             }
-            onSwiper={(swiper) => console.log(swiper)}
+            //onSwiper={(swiper) => console.log(swiper)}
           >
             <div
               slot="container-start"
@@ -92,9 +93,26 @@ class Page extends React.Component {
               data-swiper-parallax="-100%"
             ></div>
             {this.state.blocks.map((block, i) => (
-              <SwiperSlide key={block.key}>
-                <div className="block-container mt-50">{block}</div>
-              </SwiperSlide>
+              <>
+                {block.props.className ===
+                "wp-block-gallery columns-3 is-cropped imagen-modal" ? (
+                  <SwiperSlide key={block.key}>
+                    <img
+                      width="100%"
+                      height="auto"
+                      src={
+                        block.props.children.props.children[0].props.children
+                          .props.children[0].props["data-full-url"]
+                      }
+                    />{" "}
+                    <Lightbox />
+                  </SwiperSlide>
+                ) : (
+                  <SwiperSlide key={block.key}>
+                    <div className="block-container mt-50">{block}</div>
+                  </SwiperSlide>
+                )}
+              </>
             ))}
           </Swiper>
         </div>

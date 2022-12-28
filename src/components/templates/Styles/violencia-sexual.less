@@ -117,6 +117,17 @@ body {
       border-radius: 15px;
     }
   }
+  figure {
+    &.wp-block-gallery {
+      background-color: rgba(0, 0, 0, 0.1);
+      &.imagen-zoom {
+        border: 1px dashed palevioletred;
+      }
+      &.imagen-modal {
+        border: 1px dashed blue;
+      }
+    }
+  }
 }
 
 // BLOQUES SWIPER
@@ -130,42 +141,43 @@ body {
     height: 200%;
     background-size: cover;
     background-position: top;
-}
-  }
-  #slider-intro {
-    color: @white;
-    background-color: @lila;
-    min-height: 100vh;
-    position: absolute;
-    top: 0;
-  }
-  .bgAnimated {
-    position: absolute;
-    right: 44vw;
-    width: 100vw;
-    height: auto;
-    @media (max-width: 1199.98px) {
-      right: 60px;
-    }
-    @media (max-width: 767.98px) {
-      bottom: 0vh;
-    }
-  }
-
-  a.wp-block-button__link {
-    text-decoration: none;
-  }
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    height: 100vh;
-  }
-
-  .swiper-slide img {
-    width: 100%;
-    height: auto;
   }
 }
+#slider-intro {
+  color: @white;
+  background-color: @lila;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.bgAnimated {
+  position: absolute;
+  right: 44vw;
+  width: 100vw;
+  height: auto;
+  @media (max-width: 1199.98px) {
+    right: 60px;
+  }
+  @media (max-width: 767.98px) {
+    bottom: 0vh;
+  }
+}
+
+a.wp-block-button__link {
+  text-decoration: none;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  height: 100vh;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   //...
