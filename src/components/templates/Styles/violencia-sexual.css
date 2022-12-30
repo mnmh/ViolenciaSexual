@@ -24,7 +24,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #d8b69d;
   color: #422422;
   font-size: 12px;
 }
@@ -42,7 +41,7 @@ body h1,
 body h2,
 body h3,
 body h4 {
-  font-family: 'Prata', serif;
+  font-family: "Prata", serif;
   font-weight: 400;
   margin: 0;
 }
@@ -58,7 +57,7 @@ body h3 {
 body p,
 body span,
 body a {
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
 }
 body p {
   font-size: 1rem;
@@ -66,8 +65,38 @@ body p {
   padding: 2vh;
   line-height: 140%;
 }
+body img {
+  max-width: 100%;
+  height: auto;
+}
+body .item {
+  position: relative;
+  display: contents;
+}
+body .wp-block-embed-youtube iframe {
+  max-width: 100%;
+  height: auto;
+  min-height: 200px;
+}
+body .sociales {
+  display: none;
+}
+body .mt-50 {
+  margin-top: 50px;
+}
+body pre {
+  white-space: pre-wrap;
+  /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
 .App {
-  max-width: 90vw;
   margin: 0 auto;
 }
 .App figure img {
@@ -80,6 +109,7 @@ body p {
 }
 .App .bloque {
   margin: 5px;
+  padding: 20px;
 }
 .App .wp-block-button.info {
   background-color: #9b6446;
@@ -90,12 +120,66 @@ body p {
   font-size: 1.1rem;
   border-radius: 15px;
 }
-@media (max-width: 575.98px) {
+.swiper {
+  background-color: #d8b69d;
 }
-@media (max-width: 767.98px) {
+.swiper .parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 100vh;
+  width: 130%;
+  height: 200%;
+  background-size: cover;
+  background-position: top;
 }
-@media (max-width: 991.98px) {
+.swiper img.thumb {
+  max-height: 25%;
+  width: auto;
+  display: block;
+  margin: 10px auto;
+}
+#slider-intro {
+  color: #ffffff;
+  background-color: #7a157d;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.bgAnimated {
+  position: absolute;
+  right: 44vw;
+  width: 100vw;
+  height: auto;
 }
 @media (max-width: 1199.98px) {
+  .bgAnimated {
+    right: 60px;
+  }
+}
+@media (max-width: 767.98px) {
+  .bgAnimated {
+    bottom: 0vh;
+  }
+}
+a.wp-block-button__link {
+  text-decoration: none;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  height: 100vh;
+}
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
 }
 /*# sourceMappingURL=violencia-sexual.css.map */

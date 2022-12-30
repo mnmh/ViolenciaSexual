@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap");
+
+/**** Global Color ***/
+@beige: #d8b69d;
+@dark-green: #2c3f21;
+@green: #6a7564;
+@light-green: #b8c7b7;
+@text-color: #422422;
+@dark-orange: #a20027;
+@orange: #f69b02;
+@brown: #9b6446;
+@violet: #3f2771;
+@white: #ffffff;
+@lila: #7a157d;
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: @text-color;
+  font-size: 12px;
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  p,
+  span,
+  a {
+    font-family: "Mulish", sans-serif;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+    padding: 2vh;
+    line-height: 140%;
+  }
+
+  // hacks estilos por defecto wordpressv
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .item {
+    position: relative;
+    display: contents;
+  }
+  .wp-block-embed-youtube iframe {
+    max-width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+  .sociales {
+    display: none;
+  }
+  .mt-50 {
+    margin-top: 50px;
+  }
+  pre {
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  }
+}
+.App {
+  margin: 0 auto;
+  figure img {
+    width: 100%;
+    height: auto;
+  }
+  .post {
+    padding: 20px 0;
+    border-bottom: 1px solid @green;
+  }
+  .bloque {
+    margin: 5px;
+    padding: 20px;
+  }
+  .wp-block-button {
+    &.info {
+      background-color: @brown;
+      width: max-content;
+      padding: 8px 30px;
+      margin: 0 auto;
+      color: @white;
+      font-size: 1.1rem;
+      border-radius: 15px;
+    }
+  }
+}
+
+// BLOQUES SWIPER
+.swiper {
+  background-color: @beige;
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 100vh;
+    width: 130%;
+    height: 200%;
+    background-size: cover;
+    background-position: top;
+  }
+
+  img.thumb {
+    max-height: 25%;
+    width: auto;
+    display: block;
+    margin: 10px auto;
+  }
+}
+#slider-intro {
+  color: @white;
+  background-color: @lila;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.bgAnimated {
+  position: absolute;
+  right: 44vw;
+  width: 100vw;
+  height: auto;
+  @media (max-width: 1199.98px) {
+    right: 60px;
+  }
+  @media (max-width: 767.98px) {
+    bottom: 0vh;
+  }
+}
+
+a.wp-block-button__link {
+  text-decoration: none;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  height: 100vh;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  //...
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  //...
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  //...
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  //...
+}

@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import Page from './components/organisms/Page';
-import ViolenciaSexual from './components/templates/ViolenciaSexual';
-import './App.css';
+import React, { Component } from "react";
+import Page from "./components/organisms/Page";
+import Template from "./components/templates/DynamicStyle";
+//import Borrame from "./components/Borrame";
+import "./App.css";
+
 class App extends Component {
   constructor() {
     super();
@@ -22,8 +24,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
-        <ViolenciaSexual />
+      <div className="App">
+        {/* <Borrame /> */}
+        <Template />
         <Page />
       </div>
     );

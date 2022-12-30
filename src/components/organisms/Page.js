@@ -1,10 +1,24 @@
-import React from 'react';
-import axios from 'axios';
-import parse, { Element } from 'html-react-parser';
-import { Modal } from '../molecules/Modal';
+import React from "react";
+import axios from "axios";
+import parse, { Element } from "html-react-parser";
 
-const url = 'https://museodememoria.gov.co/wp-json/wp/v2/pages';
-const page = '14941';
+// Core modules imports are same as usual
+import { Parallax, Pagination } from "swiper";
+// Direct React component imports
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
+
+// Swiper
+import "./Swiper/swiper.css"; // core Swiper
+import "./Swiper/pagination/pagination.min.css"; // Pagination module
+
+import "photoswipe/dist/photoswipe.css";
+
+import { Gallery, Item } from "react-photoswipe-gallery";
+
+const queryParams = new URLSearchParams(window.location.search);
+const pagina = queryParams.get("pagina");
+
+const url = "https://museodememoria.gov.co/wp-json/wp/v2/pages";
 
 const parser = (input) =>
   parse(input, {
@@ -12,7 +26,7 @@ const parser = (input) =>
     replace: (domNode) => {
       if (
         domNode instanceof Element &&
-        domNode.attribs.class === 'imagen-modal'
+        domNode.attribs.class === "imagen-modal"
       ) {
         return <></>;
       }
@@ -22,18 +36,19 @@ const parser = (input) =>
 class Page extends React.Component {
   state = {
     blocks: [],
-    title: '',
-    obj: '',
+    title: "",
+    type: "",
   };
   componentDidMount() {
-    axios.get(url + '/' + page).then((response) => {
+    axios.get(url + "/" + pagina).then((response) => {
       const blocks = parser(response.data.content.rendered);
       const title = parser(response.data.title.rendered);
-      const obj = parser(response.data.content.rendered);
+      const type = response.data.type;
 
-      this.setState({ blocks, title, obj });
-      console.log(blocks[17].props.className);
-      console.log(obj);
+      this.setState({ blocks, title, type });
+      //console.log(blocks[26].props.className);
+      //console.log(blocks[8]);
+      //console.log(parsear(response.data.content.rendered));
     });
 
     this.showModal = this.showModal.bind(this);
@@ -51,33 +66,98 @@ class Page extends React.Component {
   render() {
     return (
       <>
-        {this.state.blocks.map((block, i) => {
-          let type = block.type;
-          switch (type) {
-            case undefined:
-              return '';
-            case 'div':
-              return (
-                <div className='bloque' key={i}>
-                  <code className={'bloque: ' + i}>bloque:{i}</code>
-                  {block}
-                </div>
-              );
-            default:
-              return (
-                <code className={'bloque: ' + i} key={i}>
-                  bloque:{i}
-                </code>
-              );
-          }
-        })}
-        <code>React Modal</code>
-        <Modal show={this.state.show} handleClose={this.hideModal}>
-          <p>Modal</p>
-        </Modal>
-        <button type='button' onClick={this.showModal}>
-          Open
-        </button>
+        <div className="container">
+          <Swiper
+            direction={"vertical"}
+            loop={false}
+            spaceBetween={0}
+            slidesPerView={1}
+            cssMode={true}
+            parallax={true}
+            modules={[Parallax, Pagination]}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: 5,
+              type: "bullets",
+            }}
+            onSlideChange={(swiper) => [
+              document.querySelectorAll("audio").forEach((el) => el.pause()),
+              document.querySelectorAll("video").forEach((el) => el.pause()),
+              //console.log("bloque: " + swiper.realIndex)
+            ]}
+          >
+            <div
+              slot="container-start"
+              className="parallax-bg"
+              style={{
+                backgroundImage:
+                  "url(https://museodememoria.gov.co/wp-content/uploads/2022/12/cuerpo.png)",
+              }}
+              data-swiper-parallax="-100%"
+            ></div>
+            {this.state.blocks.map((block, i) => (
+              <>
+                {(block.props.className || "").includes(
+                  "imagen-modal",
+                  "imagen-zoom"
+                ) ? (
+                  <SwiperSlide key={block.key}>
+                    <Gallery withCaption>
+                      {Array.isArray(block.props.children.props.children)
+                        ? block.props.children.props.children.map(
+                            (child, i) => (
+                              <Item
+                                key={i}
+                                alt={child.props.children.props.children[1].props[
+                                  "children"
+                                ].toString()}
+                                caption={child.props.children.props.children[1].props[
+                                  "children"
+                                ].toString()}
+                                original={
+                                  child.props.children.props.children[0].props[
+                                    "data-full-url"
+                                  ]
+                                }
+                                width={
+                                  child.props.children.props.children[0].props[
+                                    "width"
+                                  ]
+                                }
+                                height={
+                                  child.props.children.props.children[0].props[
+                                    "height"
+                                  ]
+                                }
+                              >
+                                {({ ref, open }) => (
+                                  <img
+                                    alt=""
+                                    className="thumb"
+                                    ref={ref}
+                                    onClick={open}
+                                    src={
+                                      child.props.children.props.children[0]
+                                        .props["data-full-url"]
+                                    }
+                                  />
+                                )}
+                              </Item>
+                            )
+                          )
+                        : []}
+                    </Gallery>
+                  </SwiperSlide>
+                ) : (
+                  <SwiperSlide key={block.key}>
+                    <div className="block-container mt-50">{block}</div>
+                  </SwiperSlide>
+                )}
+              </>
+            ))}
+          </Swiper>
+        </div>
       </>
     );
   }
