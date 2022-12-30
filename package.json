@@ -18,7 +18,7 @@
     "swiper": "^8.4.5",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://museodememoria.gov.co/dev/violenciasexual/",
+  "homepage": "https://museodememoria.gov.co/especiales/app",
   "scripts": {
     "start": "concurrently --kill-others \"less-watch-compiler --config less-watcher.config.json\" \"react-scripts start\"",
     "build": "react-scripts build",

@@ -120,15 +120,6 @@ body pre {
   font-size: 1.1rem;
   border-radius: 15px;
 }
-.App figure.wp-block-gallery {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.App figure.wp-block-gallery.imagen-zoom {
-  border: 1px dashed palevioletred;
-}
-.App figure.wp-block-gallery.imagen-modal {
-  border: 1px dashed blue;
-}
 .swiper {
   background-color: #d8b69d;
 }
@@ -140,6 +131,12 @@ body pre {
   height: 200%;
   background-size: cover;
   background-position: top;
+}
+.swiper img.thumb {
+  max-height: 25%;
+  width: auto;
+  display: block;
+  margin: 10px auto;
 }
 #slider-intro {
   color: #ffffff;

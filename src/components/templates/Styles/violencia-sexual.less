@@ -117,17 +117,6 @@ body {
       border-radius: 15px;
     }
   }
-  figure {
-    &.wp-block-gallery {
-      background-color: rgba(0, 0, 0, 0.1);
-      &.imagen-zoom {
-        border: 1px dashed palevioletred;
-      }
-      &.imagen-modal {
-        border: 1px dashed blue;
-      }
-    }
-  }
 }
 
 // BLOQUES SWIPER
@@ -141,6 +130,13 @@ body {
     height: 200%;
     background-size: cover;
     background-position: top;
+  }
+
+  img.thumb {
+    max-height: 25%;
+    width: auto;
+    display: block;
+    margin: 10px auto;
   }
 }
 #slider-intro {
