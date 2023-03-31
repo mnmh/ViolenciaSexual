@@ -141,14 +141,23 @@ body pre {
 .swiper .block-container {
   min-height: 90%;
   min-height: 90vh;
+  margin: 0 10vw;
   display: flex;
   align-items: center;
+}
+.swiper .block-container p {
+  text-align: left;
+}
+.block-container > #slider-intro {
+  width: 100vw;
+  position: absolute;
+  left: 0;
 }
 #slider-intro {
   color: #ffffff;
   background-color: #7a157d;
   min-height: 100vh;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
 }

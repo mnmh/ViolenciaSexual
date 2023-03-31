@@ -141,17 +141,29 @@ body {
   .block-container {
     min-height: 90%;
     min-height: 90vh;
+    margin: 0 10vw;
     display: flex;
     align-items: center;
+    p {
+      text-align: left;
+    }
   }
+}
+// INTRO
+
+.block-container > #slider-intro {
+  width: 100vw;
+  position: absolute;
+  left: 0;
 }
 #slider-intro {
   color: @white;
   background-color: @lila;
   min-height: 100vh;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
+
   &::before {
     background-image: url("../../../img/rama_blanca.svg");
     background-position: 150%;
