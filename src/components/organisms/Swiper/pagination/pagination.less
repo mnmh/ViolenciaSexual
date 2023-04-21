@@ -1,4 +1,4 @@
-@import url('../../swiper-vars.less');
+//@import url('../../swiper-vars.less');
 
 :root {
   /*
@@ -64,8 +64,14 @@
   }
 }
 .swiper-pagination-bullet {
-  width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
-  height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+  width: var(
+    --swiper-pagination-bullet-width,
+    var(--swiper-pagination-bullet-size, 8px)
+  );
+  height: var(
+    --swiper-pagination-bullet-height,
+    var(--swiper-pagination-bullet-size, 8px)
+  );
   display: inline-block;
   border-radius: 50%;
   background: var(--swiper-pagination-bullet-inactive-color, #000);
@@ -123,7 +129,9 @@
     }
   }
 }
-.swiper-horizontal.swiper-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+.swiper-horizontal.swiper-rtl
+  > .swiper-pagination-bullets-dynamic
+  .swiper-pagination-bullet {
   transition: 200ms transform, 200ms right;
 }
 /* Progress */

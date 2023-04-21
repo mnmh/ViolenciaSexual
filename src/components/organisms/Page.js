@@ -96,65 +96,60 @@ class Page extends React.Component {
               }}
               data-swiper-parallax="-100%"
             ></div>
-            {this.state.blocks.map((block, i) => (
-              <>
+            {this.state.blocks.map((block) => (
+              <SwiperSlide key={block.key}>
                 {(block.props.className || "").includes(
                   "imagen-modal",
                   "imagen-zoom"
                 ) ? (
-                  <SwiperSlide key={block.key}>
-                    <Gallery withCaption>
-                      {Array.isArray(block.props.children.props.children)
-                        ? block.props.children.props.children.map(
-                            (child, i) => (
-                              <Item
-                                key={i}
-                                alt={child.props.children.props.children[1].props[
-                                  "children"
-                                ].toString()}
-                                caption={child.props.children.props.children[1].props[
-                                  "children"
-                                ].toString()}
-                                original={
+                  <Gallery withCaption>
+                    {Array.isArray(block.props.children.props.children)
+                      ? block.props.children.props.children.map((child, i) => (
+                          <Item
+                            key={i}
+                            alt={child.props.children.props.children[1].props[
+                              "children"
+                            ].toString()}
+                            caption={child.props.children.props.children[1].props[
+                              "children"
+                            ].toString()}
+                            original={
+                              child.props.children.props.children[0].props[
+                                "data-full-url"
+                              ]
+                            }
+                            width={
+                              child.props.children.props.children[0].props[
+                                "width"
+                              ]
+                            }
+                            height={
+                              child.props.children.props.children[0].props[
+                                "height"
+                              ]
+                            }
+                          >
+                            {({ ref, open }) => (
+                              <img
+                                alt=""
+                                className="thumb"
+                                ref={ref}
+                                onClick={open}
+                                src={
                                   child.props.children.props.children[0].props[
                                     "data-full-url"
                                   ]
                                 }
-                                width={
-                                  child.props.children.props.children[0].props[
-                                    "width"
-                                  ]
-                                }
-                                height={
-                                  child.props.children.props.children[0].props[
-                                    "height"
-                                  ]
-                                }
-                              >
-                                {({ ref, open }) => (
-                                  <img
-                                    alt=""
-                                    className="thumb"
-                                    ref={ref}
-                                    onClick={open}
-                                    src={
-                                      child.props.children.props.children[0]
-                                        .props["data-full-url"]
-                                    }
-                                  />
-                                )}
-                              </Item>
-                            )
-                          )
-                        : []}
-                    </Gallery>
-                  </SwiperSlide>
+                              />
+                            )}
+                          </Item>
+                        ))
+                      : []}
+                  </Gallery>
                 ) : (
-                  <SwiperSlide key={block.key}>
-                    <div className="block-container mt-50">{block}</div>
-                  </SwiperSlide>
+                  <div className="block-container mt-50">{block}</div>
                 )}
-              </>
+              </SwiperSlide>
             ))}
           </Swiper>
         </div>
