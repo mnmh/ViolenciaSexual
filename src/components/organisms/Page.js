@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import parse, { Element } from "html-react-parser";
+// import ReadingIndicator from "../molecules/ReadingIndicator";
 
 // Core modules imports are same as usual
 import { Parallax, Pagination } from "swiper";
@@ -66,7 +67,9 @@ class Page extends React.Component {
   render() {
     return (
       <>
+        <div id="progress-bar"></div>
         <div className="container">
+          {/* <ReadingIndicator /> */}
           <Swiper
             direction={"vertical"}
             loop={false}
@@ -157,4 +160,5 @@ class Page extends React.Component {
     );
   }
 }
+
 export default Page;
