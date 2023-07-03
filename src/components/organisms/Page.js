@@ -5,8 +5,7 @@ import parse, { Element } from "html-react-parser";
 
 // Core modules imports are same as usual
 import { Parallax, Pagination } from "swiper";
-// Direct React component imports
-import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Swiper
 import "./Swiper/swiper.css"; // core Swiper
