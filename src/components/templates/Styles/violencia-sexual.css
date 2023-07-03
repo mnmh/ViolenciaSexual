@@ -25,12 +25,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: #422422;
-  font-size: 12px;
-}
-body body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  background-color: #7a157d;
 }
 body .container {
   max-width: 1000px;
@@ -48,11 +43,26 @@ body h4 {
 body h1 {
   font-size: 4rem;
 }
+@media (max-width: 600px) {
+  body h1 {
+    font-size: 3rem;
+  }
+}
 body h2 {
   font-size: 3rem;
 }
+@media (max-width: 600px) {
+  body h2 {
+    font-size: 2rem;
+  }
+}
 body h3 {
   font-size: 2rem;
+}
+@media (max-width: 600px) {
+  body h3 {
+    font-size: 1.5rem;
+  }
 }
 body p,
 body span,
@@ -60,14 +70,23 @@ body a {
   font-family: "Mulish", sans-serif;
 }
 body p {
-  font-size: 1rem;
+  font-size: 1.4rem;
   margin: 0;
   padding: 2vh;
   line-height: 140%;
 }
-body img {
-  max-width: 100%;
-  height: auto;
+@media (max-width: 600px) {
+  body p {
+    font-size: 1rem;
+  }
+}
+body cite {
+  font-size: 0.9rem;
+}
+@media (max-width: 600px) {
+  body cite {
+    font-size: 0.7rem;
+  }
 }
 body .item {
   position: relative;
@@ -99,9 +118,30 @@ body pre {
 .App {
   margin: 0 auto;
 }
+.App figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0 auto;
+  width: 85vw;
+}
 .App figure img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  max-height: 90vh;
+}
+.App figure ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.App figcaption {
+  font-size: 0.9rem;
+}
+@media (max-width: 600px) {
+  .App figcaption {
+    font-size: 0.7rem;
+  }
 }
 .App .post {
   padding: 20px 0;
@@ -139,7 +179,6 @@ body pre {
   margin: 10px auto;
 }
 .swiper .block-container {
-  min-height: 90%;
   min-height: 90vh;
   margin: 0 10vw;
   display: flex;
@@ -168,39 +207,14 @@ body pre {
   position: absolute;
   display: inline-block;
   z-index: 2;
-  background-size: cover;
+  background-size: contain;
   content: "";
   width: 100vw;
   height: 100vh;
-  left: 0;
 }
 @media (min-width: 992px) {
   #slider-intro::before {
     left: -50vw;
-  }
-}
-#slider-intro::after {
-  background-image: url("../../../img/rama_blanca.svg");
-  background-position: 150%;
-  background-repeat: no-repeat;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
-  position: absolute;
-  display: inline-block;
-  z-index: 2;
-  background-size: cover;
-  content: "";
-  width: 100vw;
-  height: 100vh;
-  right: 0;
-}
-@media (min-width: 992px) {
-  #slider-intro::after {
-    right: -50vw;
   }
 }
 #slider-intro .wp-block-group__inner-container {

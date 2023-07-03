@@ -18,13 +18,8 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: @text-color;
-  font-size: 12px;
-  body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
 
+  background-color: @lila;
   .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -42,13 +37,22 @@ body {
 
   h1 {
     font-size: 4rem;
+    @media (max-width: 600px) {
+      font-size: 3rem;
+    }
   }
   h2 {
     font-size: 3rem;
+    @media (max-width: 600px) {
+      font-size: 2rem;
+    }
   }
 
   h3 {
     font-size: 2rem;
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
+    }
   }
 
   p,
@@ -58,17 +62,23 @@ body {
   }
 
   p {
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin: 0;
     padding: 2vh;
     line-height: 140%;
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
+  }
+  cite {
+    font-size: 0.9rem;
+    @media (max-width: 600px) {
+      font-size: 0.7rem;
+    }
   }
 
   // hacks estilos por defecto wordpressv
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+
   .item {
     position: relative;
     display: contents;
@@ -94,9 +104,28 @@ body {
 }
 .App {
   margin: 0 auto;
-  figure img {
-    width: 100%;
-    height: auto;
+  figure {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin: 0 auto;
+    width: 85vw;
+    img {
+      width: auto;
+      max-height: 90vh;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  figcaption {
+    font-size: 0.9rem;
+    @media (max-width: 600px) {
+      font-size: 0.7rem;
+    }
   }
   .post {
     padding: 20px 0;
@@ -139,7 +168,6 @@ body {
     margin: 10px auto;
   }
   .block-container {
-    min-height: 90%;
     min-height: 90vh;
     margin: 0 10vw;
     display: flex;
@@ -149,6 +177,7 @@ body {
     }
   }
 }
+
 // INTRO
 
 .block-container > #slider-intro {
@@ -171,35 +200,12 @@ body {
     position: absolute;
     display: inline-block;
     z-index: 2;
-    background-size: cover;
+    background-size: contain;
     content: "";
     width: 100vw;
     height: 100vh;
-    left: 0;
     @media (min-width: 992px) {
       left: -50vw;
-    }
-  }
-  &::after {
-    background-image: url("../../../img/rama_blanca.svg");
-    background-position: 150%;
-    background-repeat: no-repeat;
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-    position: absolute;
-    display: inline-block;
-    z-index: 2;
-    background-size: cover;
-    content: "";
-    width: 100vw;
-    height: 100vh;
-    right: 0;
-    @media (min-width: 992px) {
-      right: -50vw;
     }
   }
   .wp-block-group__inner-container {
