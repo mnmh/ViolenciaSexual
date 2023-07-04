@@ -5,6 +5,12 @@ export const handlerSlideChange = (
   handleAction
 ) => {
   switch (currentIndex) {
+    case 0:
+      document.body.style.backgroundColor = "#7a157d";
+      break;
+    case 1:
+      document.body.style.backgroundColor = "#d8b69d";
+      break;
     case 51: // segundo eje
       console.log("cambiar a horizontal");
       swiper.changeDirection("horizontal");

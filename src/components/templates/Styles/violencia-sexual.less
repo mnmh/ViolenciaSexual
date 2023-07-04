@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap");
+@import "./slides.less";
 
 /**** Global Color ***/
 @beige: #d8b69d;
@@ -19,7 +20,8 @@ body {
   overflow-x: hidden;
   color: @text-color;
 
-  background-color: @beige;
+  background-color: @lila;
+  transition: background-color 0.5s ease-in-out;
   .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -31,7 +33,8 @@ body {
   h3,
   h4 {
     font-family: "Prata", serif;
-    font-weight: 400;
+    color: @white;
+    font-weight: 600;
     margin: 0;
   }
 
@@ -102,6 +105,7 @@ body {
     word-wrap: break-word; /* Internet Explorer 5.5+ */
   }
 }
+
 .App {
   margin: 0 auto;
   figure {
@@ -177,7 +181,7 @@ body {
 
 // BLOQUES SWIPER
 .swiper {
-  background-color: @beige;
+  background-color: transparent;
   .parallax-bg {
     position: absolute;
     left: 0;
@@ -213,7 +217,6 @@ body {
 }
 #slider-intro {
   color: @white;
-  background-color: @lila;
   min-height: 100vh;
   position: relative;
   top: 0;
