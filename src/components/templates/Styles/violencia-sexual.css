@@ -25,7 +25,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: #422422;
-  background-color: #7a157d;
+  background-color: #d8b69d;
 }
 body .container {
   max-width: 1000px;
@@ -160,15 +160,39 @@ body pre {
   font-size: 1.1rem;
   border-radius: 15px;
 }
+.App .cortina {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  animation: background-color 1s infinite;
+}
+.App .cortina::before {
+  content: url("../../../load.gif");
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 43vh);
+  position: absolute;
+}
+.menulineas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 70px;
+}
 .swiper {
   background-color: #d8b69d;
 }
 .swiper .parallax-bg {
   position: absolute;
   left: 0;
-  top: 100vh;
-  width: 130%;
-  height: 200%;
+  top: 0;
+  height: 100vh;
   background-size: cover;
   background-position: top;
 }
@@ -244,10 +268,10 @@ a.wp-block-button__link {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  min-height: 100%;
-  min-height: 90vh;
+  height: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 .swiper-slide img {
   width: 100%;
@@ -262,12 +286,26 @@ a.wp-block-button__link {
 .swiper-slide img.thumb:first-child {
   display: block;
 }
-@media (min-width: 576px) {
+@-o-keyframes fadeIt {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #ad301b;
+  }
+  100% {
+    background-color: #ffffff;
+  }
 }
-@media (min-width: 768px) {
-}
-@media (min-width: 992px) {
-}
-@media (min-width: 1200px) {
+@keyframes fadeIt {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #ad301b;
+  }
+  100% {
+    background-color: #ffffff;
+  }
 }
 /*# sourceMappingURL=violencia-sexual.css.map */

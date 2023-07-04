@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Page from "./components/organisms/Page";
-import Template from "./components/templates/DynamicStyle";
+import Page from "./components/organisms/Page.js";
+import Template from "./components/templates/DynamicStyle.js";
 import "./App.css";
 
 class App extends Component {

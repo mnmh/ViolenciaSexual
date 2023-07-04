@@ -1,19 +1,16 @@
 import React from "react";
 import axios from "axios";
 import parse, { Element } from "html-react-parser";
-// import ReadingIndicator from "../molecules/ReadingIndicator";
-
-// Core modules imports are same as usual
-import { Parallax, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Swiper
+import { Parallax } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "./Swiper/swiper.css"; // core Swiper
-import "./Swiper/pagination/pagination.min.css"; // Pagination module
+import { handlerSlideChange } from "../swiperUtils.js";
 
+/* 
 import "photoswipe/dist/photoswipe.css";
-
-import { Gallery, Item } from "react-photoswipe-gallery";
+import { Gallery, Item } from "react-photoswipe-gallery"; */
 
 const queryParams = new URLSearchParams(window.location.search);
 const pagina = queryParams.get("pagina");
@@ -38,7 +35,15 @@ class Page extends React.Component {
     blocks: [],
     title: "",
     type: "",
+    isVisible: false,
   };
+  handleAction = () => {
+    this.setState({ isVisible: true });
+    setTimeout(() => {
+      this.setState({ isVisible: false });
+    }, 1500);
+  };
+
   componentDidMount() {
     axios.get(url + "/" + pagina).then((response) => {
       const blocks = parser(response.data.content.rendered);
@@ -46,9 +51,6 @@ class Page extends React.Component {
       const type = response.data.type;
 
       this.setState({ blocks, title, type });
-      //console.log(blocks[26].props.className);
-      //console.log(blocks[8]);
-      //console.log(parsear(response.data.content.rendered));
     });
 
     this.showModal = this.showModal.bind(this);
@@ -64,30 +66,36 @@ class Page extends React.Component {
   };
 
   render() {
+    const { isVisible } = this.state;
+
     return (
       <>
         <div id="progress-bar"></div>
+        {/* <MenuLineas /> */}
         <div className="container">
-          {/* <ReadingIndicator /> */}
           <Swiper
+            observer={true}
             direction={"vertical"}
             loop={false}
             spaceBetween={0}
             slidesPerView={1}
             cssMode={true}
             parallax={true}
-            modules={[Parallax, Pagination]}
-            pagination={{
-              clickable: true,
-              dynamicBullets: true,
-              dynamicMainBullets: 5,
-              type: "bullets",
+            modules={[Parallax]}
+            onSlideChange={(swiper) => {
+              const currentIndex = swiper.realIndex;
+              const totalSlides = swiper.slides.length - 1;
+
+              handlerSlideChange(
+                swiper,
+                currentIndex,
+                totalSlides,
+                this.handleAction
+              );
+              console.log(currentIndex);
+              document.querySelectorAll("audio").forEach((el) => el.pause());
+              document.querySelectorAll("video").forEach((el) => el.pause());
             }}
-            onSlideChange={(swiper) => [
-              document.querySelectorAll("audio").forEach((el) => el.pause()),
-              document.querySelectorAll("video").forEach((el) => el.pause()),
-              //console.log("bloque: " + swiper.realIndex)
-            ]}
           >
             <div
               slot="container-start"
@@ -98,63 +106,15 @@ class Page extends React.Component {
               }}
               data-swiper-parallax="-100%"
             ></div>
-            {this.state.blocks.map((block) => (
-              <SwiperSlide key={block.key}>
-                {(block.props.className || "").includes(
-                  "imagen-modal",
-                  "imagen-zoom"
-                ) ? (
-                  <Gallery withCaption>
-                    {Array.isArray(block.props.children.props.children)
-                      ? block.props.children.props.children.map((child, i) => (
-                          <Item
-                            key={i}
-                            alt={child.props.children.props.children[1].props[
-                              "children"
-                            ].toString()}
-                            caption={child.props.children.props.children[1].props[
-                              "children"
-                            ].toString()}
-                            original={
-                              child.props.children.props.children[0].props[
-                                "data-full-url"
-                              ]
-                            }
-                            width={
-                              child.props.children.props.children[0].props[
-                                "width"
-                              ]
-                            }
-                            height={
-                              child.props.children.props.children[0].props[
-                                "height"
-                              ]
-                            }
-                          >
-                            {({ ref, open }) => (
-                              <img
-                                alt=""
-                                className="thumb"
-                                ref={ref}
-                                onClick={open}
-                                src={
-                                  child.props.children.props.children[0].props[
-                                    "data-full-url"
-                                  ]
-                                }
-                              />
-                            )}
-                          </Item>
-                        ))
-                      : []}
-                  </Gallery>
-                ) : (
-                  <div className="block-container mt-50">{block}</div>
-                )}
+            {this.state.blocks.map((block, i) => (
+              <SwiperSlide key={`block-${i}`}>
+                <div className="block-container mt-50">{block}</div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
+
+        {isVisible && <div className="cortina backgroundAnimated"></div>}
       </>
     );
   }
