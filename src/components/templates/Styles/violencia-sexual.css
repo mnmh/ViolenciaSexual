@@ -57,6 +57,7 @@ body h4 {
   color: #ffffff;
   font-weight: 600;
   margin: 0;
+  text-shadow: 2px 2px 6px #422422;
 }
 body h1 {
   font-size: 4rem;
@@ -202,18 +203,25 @@ pre {
   animation: background-color 1s infinite;
 }
 .App .cortina::before {
-  content: url("../../../load.gif");
+  content: url("../../../img/cnmh-loading.gif");
   top: 0;
-  left: 50%;
-  transform: translate(-50%, 43vh);
+  transform: translate(50vw, 45vh);
   position: absolute;
 }
-.menulineas {
+@media (max-width: 600px) {
+  .App .cortina::before {
+    transform: translate(40vw, 40vh);
+  }
+}
+.menu {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
   width: 70px;
+}
+.menu.hide {
+  visibility: hidden;
 }
 .swiper {
   background-color: transparent;
@@ -221,8 +229,9 @@ pre {
 .swiper .parallax-bg {
   position: absolute;
   left: 0;
-  top: 0;
-  height: 100vh;
+  top: 40vh;
+  width: 130%;
+  height: 500vh;
   background-size: cover;
   background-position: top;
 }

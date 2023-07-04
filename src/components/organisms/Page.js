@@ -12,6 +12,8 @@ import { handlerSlideChange } from "../swiperUtils.js";
 import "photoswipe/dist/photoswipe.css";
 import { Gallery, Item } from "react-photoswipe-gallery"; */
 
+import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
+
 const queryParams = new URLSearchParams(window.location.search);
 const pagina = queryParams.get("pagina");
 
@@ -35,7 +37,6 @@ class Page extends React.Component {
     blocks: [],
     title: "",
     type: "",
-    isVisible: false,
   };
   handleAction = () => {
     this.setState({ isVisible: true });
@@ -52,17 +53,17 @@ class Page extends React.Component {
 
       this.setState({ blocks, title, type });
     });
-
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
   }
 
-  showModal = () => {
-    this.setState({ show: true });
-  };
-
-  hideModal = () => {
-    this.setState({ show: false });
+  goToIndex = (index) => {
+    const { swiper } = this.state;
+    if (swiper) {
+      swiper.slideTo(index);
+    } else {
+      setTimeout(() => {
+        this.goToIndex(index);
+      }, 1000);
+    }
   };
 
   render() {
@@ -83,6 +84,7 @@ class Page extends React.Component {
             parallax={true}
             modules={[Parallax]}
             onSlideChange={(swiper) => {
+              this.setState({ swiper }); // Almacenar la instancia del swiper en el estado
               const currentIndex = swiper.realIndex;
               const totalSlides = swiper.slides.length - 1;
 
@@ -113,8 +115,8 @@ class Page extends React.Component {
             ))}
           </Swiper>
         </div>
-
         {isVisible && <div className="cortina backgroundAnimated"></div>}
+        <Menu goToIndex={this.goToIndex} />
       </>
     );
   }
