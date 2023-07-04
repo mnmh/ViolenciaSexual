@@ -106,22 +106,34 @@ body cite {
     font-size: 0.7rem;
   }
 }
-body .item {
+body.lila {
+  background-color: #7a157d;
+}
+body.beige {
+  background-color: #d8b69d;
+}
+body.verde {
+  background-color: #6a7564;
+}
+body.naranja {
+  background-color: #f69b02;
+}
+.item {
   position: relative;
   display: contents;
 }
-body .wp-block-embed-youtube iframe {
+.wp-block-embed-youtube iframe {
   max-width: 100%;
   height: auto;
   min-height: 200px;
 }
-body .sociales {
+.sociales {
   display: none;
 }
-body .mt-50 {
+.mt-50 {
   margin-top: 50px;
 }
-body pre {
+pre {
   white-space: pre-wrap;
   /* Since CSS 2.1 */
   white-space: -moz-pre-wrap;

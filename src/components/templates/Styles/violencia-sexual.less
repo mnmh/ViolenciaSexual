@@ -19,7 +19,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: @text-color;
-
   background-color: @lila;
   transition: background-color 0.5s ease-in-out;
   .container {
@@ -79,31 +78,43 @@ body {
       font-size: 0.7rem;
     }
   }
+  &.lila {
+    background-color: @lila;
+  }
+  &.beige {
+    background-color: @beige;
+  }
+  &.verde {
+    background-color: @green;
+  }
+  &.naranja {
+    background-color: @orange;
+  }
+}
 
-  // hacks estilos por defecto wordpressv
+// hacks estilos por defecto wordpressv
 
-  .item {
-    position: relative;
-    display: contents;
-  }
-  .wp-block-embed-youtube iframe {
-    max-width: 100%;
-    height: auto;
-    min-height: 200px;
-  }
-  .sociales {
-    display: none;
-  }
-  .mt-50 {
-    margin-top: 50px;
-  }
-  pre {
-    white-space: pre-wrap; /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-    white-space: -pre-wrap; /* Opera 4-6 */
-    white-space: -o-pre-wrap; /* Opera 7 */
-    word-wrap: break-word; /* Internet Explorer 5.5+ */
-  }
+.item {
+  position: relative;
+  display: contents;
+}
+.wp-block-embed-youtube iframe {
+  max-width: 100%;
+  height: auto;
+  min-height: 200px;
+}
+.sociales {
+  display: none;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 .App {

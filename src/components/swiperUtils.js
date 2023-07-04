@@ -6,10 +6,12 @@ export const handlerSlideChange = (
 ) => {
   switch (currentIndex) {
     case 0:
-      document.body.style.backgroundColor = "#7a157d";
+      document.body.classList.remove("beige");
+      document.body.classList.add("lila");
       break;
     case 1:
-      document.body.style.backgroundColor = "#d8b69d";
+      document.body.classList.remove("lila");
+      document.body.classList.add("beige");
       break;
     case 51: // segundo eje
       console.log("cambiar a horizontal");
@@ -19,6 +21,8 @@ export const handlerSlideChange = (
         swiper.slideToLoop(51, 1, false);
         console.log("new index: " + currentIndex);
       }, 500);
+      document.body.classList.remove("beige");
+      document.body.classList.add("verde");
       swiper.update();
       break;
     case 84: // tercer eje
@@ -29,6 +33,8 @@ export const handlerSlideChange = (
         swiper.slideToLoop(84, 1, false);
         console.log("new index: " + currentIndex);
       }, 500);
+      document.body.classList.remove("verde");
+      document.body.classList.add("naranja");
       swiper.update();
       break;
     case totalSlides: // última diapo
