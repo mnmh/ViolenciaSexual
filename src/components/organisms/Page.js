@@ -13,6 +13,7 @@ import "photoswipe/dist/photoswipe.css";
 import { Gallery, Item } from "react-photoswipe-gallery"; */
 
 import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
+import Mariposa from "../molecules/Mariposa.js";
 
 const queryParams = new URLSearchParams(window.location.search);
 const pagina = queryParams.get("pagina");
@@ -62,7 +63,7 @@ class Page extends React.Component {
     } else {
       setTimeout(() => {
         this.goToIndex(index);
-      }, 1000);
+      }, 100);
     }
   };
 
@@ -117,6 +118,7 @@ class Page extends React.Component {
         </div>
         {isVisible && <div className="cortina backgroundAnimated"></div>}
         <Menu goToIndex={this.goToIndex} />
+        <Mariposa />
       </>
     );
   }

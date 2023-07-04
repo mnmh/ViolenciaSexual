@@ -4,14 +4,134 @@
 }
 .swiper-slide #eje1::before {
   background-image: url("../../../img/Path-3492.png");
-  width: 100vw;
+  width: 65vw;
   height: 100vh;
   content: "";
   position: absolute;
   display: block;
-  z-index: 2;
+  z-index: -1;
   top: 0;
   margin: 0 -20vw;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.outer {
+  width: 500px;
+  position: absolute;
+  animation: floatup 20s linear infinite, sideways 20s linear infinite,
+    change 10s linear infinite alternate;
+}
+.box1 {
+  width: 100px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 100px;
+}
+.box1::before,
+.box1::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box1::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+.box2 {
+  width: 100px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 100px;
+}
+.box2::before,
+.box2::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box2::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+.box3 {
+  width: 100px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 100px;
+}
+.box3::before,
+.box3::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box3::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+@keyframes left {
+  from {
+    transform: translateZ(80px) rotateY(-10deg);
+  }
+  to {
+    transform: translateZ(0px) rotateY(70deg);
+  }
+}
+@keyframes right {
+  from {
+    transform: translateZ(80px) rotateY(10deg);
+  }
+  to {
+    transform: translateZ(0px) rotateY(-70deg);
+  }
+}
+@keyframes flutter {
+  from {
+    margin-left: 0;
+    margin-top: 100%;
+  }
+  to {
+    margin-left: 100%;
+    margin-top: 0;
+  }
+}
+@keyframes floatup {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -300px;
+  }
+}
+@keyframes sideways {
+  from {
+    left: 0;
+  }
+  to {
+    left: 700px;
+  }
+}
+@keyframes change {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
 }
 /*# sourceMappingURL=slides.css.map */

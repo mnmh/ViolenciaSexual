@@ -6,6 +6,7 @@ const Menu = ({ goToIndex }) => {
       <div onClick={() => goToIndex(1)} className="eje1">
         click
       </div>
+      <button onClick={() => goToIndex(0)}>Index 0</button>
       <button onClick={() => goToIndex(1)}>Index 1</button>
       <button onClick={() => goToIndex(45)}>Index 45</button>
       <button onClick={() => goToIndex(77)}>Index 77</button>

@@ -25,15 +25,165 @@
 }
 .swiper-slide #eje1::before {
   background-image: url("../../../img/Path-3492.png");
-  width: 100vw;
+  width: 65vw;
   height: 100vh;
   content: "";
   position: absolute;
   display: block;
-  z-index: 2;
+  z-index: -1;
   top: 0;
   margin: 0 -20vw;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.outer1 {
+  width: 500px;
+  position: absolute;
+  animation: floatup1 25s linear infinite, sideways 25s linear infinite,
+    change 5s linear infinite alternate;
+}
+.outer2 {
+  width: 500px;
+  position: absolute;
+  animation: floatup2 20s linear infinite, sideways 20s linear infinite,
+    change 15s linear infinite alternate;
+}
+.outer3 {
+  width: 500px;
+  position: absolute;
+  animation: floatup3 35s linear infinite, sideways 30s linear infinite,
+    change 20s linear infinite alternate;
+}
+.box1 {
+  width: 80px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 30vw;
+}
+.box1::before,
+.box1::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("../../../img/butterfly.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box1::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+.box2 {
+  width: 120px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 60vw;
+}
+.box2::before,
+.box2::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box2::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+.box3 {
+  width: 180px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 70vw;
+}
+.box3::before,
+.box3::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box3::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+@keyframes left {
+  from {
+    transform: translateZ(80px) rotateY(-10deg);
+  }
+  to {
+    transform: translateZ(0px) rotateY(70deg);
+  }
+}
+@keyframes right {
+  from {
+    transform: translateZ(80px) rotateY(10deg);
+  }
+  to {
+    transform: translateZ(0px) rotateY(-70deg);
+  }
+}
+@keyframes flutter {
+  from {
+    margin-left: 0;
+    margin-top: 100%;
+  }
+  to {
+    margin-left: 100%;
+    margin-top: 0;
+  }
+}
+@keyframes floatup {
+  0% {
+    top: 100%;
+    transform: rotateZ(0deg);
+  }
+  100% {
+    top: -300px;
+    transform: rotateZ(random(360deg));
+  }
+}
+@keyframes floatup2 {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -500px;
+  }
+}
+@keyframes floatup3 {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -800px;
+  }
+}
+@keyframes sideways {
+  from {
+    left: 0;
+  }
+  to {
+    left: 700px;
+  }
+}
+@keyframes change {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
 }
 /**** Global Color ***/
 body {
@@ -149,6 +299,9 @@ pre {
 .App {
   margin: 0 auto;
 }
+.App .wp-block-gallery figure.wp-block-image img {
+  height: 30vh;
+}
 .App figure {
   margin-block-start: 0;
   margin-block-end: 0;
@@ -156,6 +309,11 @@ pre {
   margin-inline-end: 0px;
   margin: 0 auto;
   width: 85vw;
+}
+@media (min-width: 992px) {
+  .App figure {
+    width: unset;
+  }
 }
 .App figure img {
   width: auto;
@@ -268,7 +426,7 @@ pre {
   background-repeat: no-repeat;
   position: absolute;
   display: inline-block;
-  z-index: 2;
+  z-index: -1;
   background-size: contain;
   content: "";
   width: 100vw;
@@ -283,6 +441,11 @@ pre {
   position: relative;
   display: inline-block;
   top: 40vh;
+}
+@media (min-width: 992px) {
+  #slider-intro .wp-block-group__inner-container {
+    right: 25vw;
+  }
 }
 .bgAnimated {
   position: absolute;
