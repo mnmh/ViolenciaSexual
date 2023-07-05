@@ -1,9 +1,4 @@
-export const handlerSlideChange = (
-  swiper,
-  currentIndex,
-  totalSlides,
-  handleAction
-) => {
+export const handlerSlideChange = (swiper, currentIndex, totalSlides) => {
   switch (currentIndex) {
     case 0:
       document.body.classList.remove("beige");
@@ -18,8 +13,8 @@ export const handlerSlideChange = (
         elementToUnhide.classList.remove("hide");
       }
       // console.log("cambiar a vertical");
-      swiper.changeDirection("vertical");
-      handleAction();
+      //swiper.changeDirection("vertical");
+
       setTimeout(() => {
         swiper.slideToLoop(1);
         // console.log("new index: " + currentIndex);
@@ -29,12 +24,12 @@ export const handlerSlideChange = (
       document.body.classList.remove("verde");
       document.body.classList.remove("naranja");
       document.body.classList.add("beige");
-      swiper.update();
+      //swiper.update();
       break;
     case 40: // segundo eje
       // console.log("cambiar a horizontal");
-      swiper.changeDirection("horizontal");
-      handleAction();
+      //swiper.changeDirection("horizontal");
+
       setTimeout(() => {
         swiper.slideToLoop(40);
         // console.log("new index: " + currentIndex);
@@ -43,12 +38,12 @@ export const handlerSlideChange = (
       document.body.classList.remove("lila");
       document.body.classList.remove("naranja");
       document.body.classList.add("verde");
-      swiper.update();
+      //swiper.update();
       break;
     case 69: // tercer eje
       // console.log("cambiar a vertical");
-      swiper.changeDirection("vertical");
-      handleAction();
+      //swiper.changeDirection("vertical");
+
       setTimeout(() => {
         swiper.slideToLoop(69);
         // console.log("new index: " + currentIndex);
@@ -57,17 +52,17 @@ export const handlerSlideChange = (
       document.body.classList.remove("verde");
       document.body.classList.remove("lila");
       document.body.classList.add("naranja");
-      swiper.update();
+      //swiper.update();
       break;
     case totalSlides: // última diapo
       // console.log("cambiar a vertical");
-      swiper.changeDirection("vertical");
-      handleAction();
+      //swiper.changeDirection("vertical");
+
       setTimeout(() => {
         window.location.reload();
         // console.log("new index: " + currentIndex);
       }, 500);
-      swiper.update();
+      //swiper.update();
       break;
   }
 };

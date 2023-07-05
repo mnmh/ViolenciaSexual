@@ -3,9 +3,10 @@ import axios from "axios";
 import parse, { Element } from "html-react-parser";
 
 // Swiper
-import { Parallax } from "swiper";
-import { Swiper, SwiperSlide, Navigation } from "swiper/react";
+import { Parallax, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "./Swiper/swiper.css"; // core Swiper
+import "./Swiper/pagination/pagination.min.css"; // Pagination module
 import { handlerSlideChange } from "../swiperUtils.js";
 
 /* 
@@ -38,12 +39,6 @@ class Page extends React.Component {
     blocks: [],
     title: "",
     type: "",
-  };
-  handleAction = () => {
-    this.setState({ isVisible: true });
-    setTimeout(() => {
-      this.setState({ isVisible: false });
-    }, 1500);
   };
 
   componentDidMount() {
@@ -83,8 +78,13 @@ class Page extends React.Component {
             spaceBetween={0}
             slidesPerView={1}
             cssMode={true}
-            parallax={true}
-            modules={[Parallax]}
+            modules={[Parallax, Pagination]}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              dynamicMainBullets: 5,
+              type: "bullets",
+            }}
             onSlideChange={(swiper) => {
               this.setState({ swiper }); // Almacenar la instancia del swiper en el estado
               const currentIndex = swiper.realIndex;
@@ -119,7 +119,7 @@ class Page extends React.Component {
           </Swiper>
         </div>
         {isVisible && <div className="cortina backgroundAnimated"></div>}
-        <Menu goToIndex={this.goToIndex} />
+        {/*<Menu goToIndex={this.goToIndex} />*/}
       </>
     );
   }
