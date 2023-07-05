@@ -4,7 +4,7 @@ import parse, { Element } from "html-react-parser";
 
 // Swiper
 import { Parallax } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, Navigation } from "swiper/react";
 import "./Swiper/swiper.css"; // core Swiper
 import { handlerSlideChange } from "../swiperUtils.js";
 
@@ -77,6 +77,7 @@ class Page extends React.Component {
         <div className="container">
           <Swiper
             observer={true}
+            keyboard={true}
             direction={"vertical"}
             loop={false}
             spaceBetween={0}
