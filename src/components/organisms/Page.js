@@ -111,14 +111,14 @@ class Page extends React.Component {
             ></div>
             {this.state.blocks.map((block, i) => (
               <SwiperSlide key={`block-${i}`}>
-                <div className="block-container mt-50">{block}</div>
+                <div className="block-container">{block}</div>
               </SwiperSlide>
             ))}
+            <Mariposa />
           </Swiper>
         </div>
         {isVisible && <div className="cortina backgroundAnimated"></div>}
         <Menu goToIndex={this.goToIndex} />
-        <Mariposa />
       </>
     );
   }

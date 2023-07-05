@@ -15,24 +15,43 @@
   background-repeat: no-repeat;
   background-position: top;
 }
-.outer {
+@media (max-width: 600px) {
+  .swiper-slide #eje1::before {
+    background-size: cover;
+    width: 100vw;
+    height: 80vh;
+  }
+}
+.outer1 {
   width: 500px;
   position: absolute;
-  animation: floatup 20s linear infinite, sideways 20s linear infinite,
-    change 10s linear infinite alternate;
+  animation: floatup1 25s linear infinite, sideways 25s linear infinite,
+    change 5s linear infinite alternate;
+}
+.outer2 {
+  width: 500px;
+  position: absolute;
+  animation: floatup2 20s linear infinite, sideways 20s linear infinite,
+    change 15s linear infinite alternate;
+}
+.outer3 {
+  width: 500px;
+  position: absolute;
+  animation: floatup3 35s linear infinite, sideways 30s linear infinite,
+    change 20s linear infinite alternate;
 }
 .box1 {
-  width: 100px;
+  width: 80px;
   display: flex;
   perspective: 500px;
-  margin-right: 100px;
+  margin-right: 30vw;
 }
 .box1::before,
 .box1::after {
   content: "";
   padding-top: 56%;
   flex: 1;
-  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-image: url("../../../img/butterfly.png");
   background-size: 200% 100%;
   animation: left 0.5s linear infinite alternate;
   transform-origin: right;
@@ -43,10 +62,10 @@
   transform-origin: left;
 }
 .box2 {
-  width: 100px;
+  width: 120px;
   display: flex;
   perspective: 500px;
-  margin-right: 100px;
+  margin-right: 60vw;
 }
 .box2::before,
 .box2::after {
@@ -64,10 +83,10 @@
   transform-origin: left;
 }
 .box3 {
-  width: 100px;
+  width: 180px;
   display: flex;
   perspective: 500px;
-  margin-right: 100px;
+  margin-right: 70vw;
 }
 .box3::before,
 .box3::after {
@@ -113,9 +132,27 @@
 @keyframes floatup {
   0% {
     top: 100%;
+    transform: rotateZ(0deg);
   }
   100% {
     top: -300px;
+    transform: rotateZ(random(360deg));
+  }
+}
+@keyframes floatup2 {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -500px;
+  }
+}
+@keyframes floatup3 {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -800px;
   }
 }
 @keyframes sideways {

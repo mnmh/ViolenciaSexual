@@ -36,6 +36,13 @@
   background-repeat: no-repeat;
   background-position: top;
 }
+@media (max-width: 600px) {
+  .swiper-slide #eje1::before {
+    background-size: cover;
+    width: 100vw;
+    height: 80vh;
+  }
+}
 .outer1 {
   width: 500px;
   position: absolute;
@@ -195,7 +202,6 @@ body {
   transition: background-color 0.5s ease-in-out;
 }
 body .container {
-  max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
@@ -218,11 +224,11 @@ body h1 {
   }
 }
 body h2 {
-  font-size: 3rem;
+  font-size: 5rem;
 }
 @media (max-width: 600px) {
   body h2 {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 }
 body h3 {
@@ -300,7 +306,7 @@ pre {
   margin: 0 auto;
 }
 .App .wp-block-gallery figure.wp-block-image img {
-  height: 30vh;
+  max-height: 30vh;
 }
 .App figure {
   margin-block-start: 0;
@@ -314,10 +320,6 @@ pre {
   .App figure {
     width: unset;
   }
-}
-.App figure img {
-  width: auto;
-  max-height: 90vh;
 }
 .App figure ul {
   list-style-type: none;
@@ -442,11 +444,6 @@ pre {
   display: inline-block;
   top: 40vh;
 }
-@media (min-width: 992px) {
-  #slider-intro .wp-block-group__inner-container {
-    right: 25vw;
-  }
-}
 .bgAnimated {
   position: absolute;
   right: 44vw;
@@ -475,7 +472,7 @@ a.wp-block-button__link {
   overflow: hidden;
 }
 .swiper-slide img {
-  width: 100%;
+  width: initial;
   height: auto;
 }
 .swiper-slide img.thumb {
