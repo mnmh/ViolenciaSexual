@@ -330,10 +330,22 @@ pre {
 .App .wp-block-gallery figure.wp-block-image img {
   max-height: 90vh;
 }
-.App .item-imagen {
+.App .wp-block-audio::before {
+  content: "";
+  background-image: url("../../../img/mariposa-audio.png");
+  width: 45%;
+  height: 30vh;
+  position: absolute;
+  bottom: -26px;
+  background-repeat: no-repeat;
+  background-position: top;
+  right: 443px;
+  background-size: contain;
+}
+.item-imagen {
   display: contents;
 }
-.App figure {
+figure {
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0px;
@@ -342,12 +354,12 @@ pre {
   width: 85vw;
   position: relative;
 }
-.App figure ul {
+figure ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-.App figcaption {
+figcaption {
   font-size: 0.9rem;
   /* background: black; */
   position: relative;
@@ -359,19 +371,19 @@ pre {
   border: 1px dashed white;
 }
 @media (max-width: 600px) {
-  .App figcaption {
+  figcaption {
     font-size: 0.7rem;
   }
 }
-.App .post {
+.post {
   padding: 20px 0;
   border-bottom: 1px solid #6a7564;
 }
-.App .bloque {
+.bloque {
   margin: 5px;
   padding: 20px;
 }
-.App .wp-block-button.info {
+.wp-block-button.info {
   background-color: #9b6446;
   width: max-content;
   padding: 8px 30px;
@@ -380,16 +392,16 @@ pre {
   font-size: 1.1rem;
   border-radius: 15px;
 }
-.App .ramas {
+.ramas {
   position: fixed;
   bottom: -93vh;
   right: -26vw;
   z-index: 0;
 }
-.App .ramas svg {
+.ramas svg {
   width: 77vw;
 }
-.App .mariposas-color {
+.mariposas-color {
   background-image: url("../../../img/mariposas-colores.png");
   width: 100vw;
   height: 100vh;
@@ -398,7 +410,7 @@ pre {
   background-repeat: no-repeat;
   background-position: center center;
 }
-.App .mariposa-inicio {
+.mariposa-inicio {
   z-index: 3;
   position: relative;
 }

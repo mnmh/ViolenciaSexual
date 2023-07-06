@@ -142,82 +142,95 @@ pre {
   .wp-block-gallery figure.wp-block-image img {
     max-height: 90vh;
   }
-  .item-imagen {
-    display: contents;
-  }
-  figure {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    margin: 0 auto;
-    width: 85vw;
-    position: relative;
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-  }
-  figcaption {
-    font-size: 0.9rem;
-    /* background: black; */
-    position: relative;
-    width: fit-content;
-    bottom: 0px;
-    /* color: white; */
-    padding: 10px;
-    margin: 0 auto;
-    border: 1px dashed white;
-    @media (max-width: 600px) {
-      font-size: 0.7rem;
-    }
-  }
-  .post {
-    padding: 20px 0;
-    border-bottom: 1px solid @green;
-  }
-  .bloque {
-    margin: 5px;
-    padding: 20px;
-  }
-  .wp-block-button {
-    &.info {
-      background-color: @brown;
-      width: max-content;
-      padding: 8px 30px;
-      margin: 0 auto;
-      color: @white;
-      font-size: 1.1rem;
-      border-radius: 15px;
-    }
-  }
 
-  // RAMAS
-  .ramas {
-    position: fixed;
-    bottom: -93vh;
-    right: -26vw;
-    z-index: 0;
-    svg {
-      width: 77vw;
-    }
-  }
-
-  // MARIPOSAS
-  .mariposas-color {
-    background-image: url("../../../img/mariposas-colores.png");
-    width: 100vw;
-    height: 100vh;
+  .wp-block-audio::before {
+    content: "";
+    background-image: url("../../../img/mariposa-audio.png");
+    width: 45%;
+    height: 30vh;
     position: absolute;
-    top: 0;
+    bottom: -26px;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top;
+    right: 443px;
+    background-size: contain;
   }
-  .mariposa-inicio {
-    z-index: 3;
-    position: relative;
+}
+.item-imagen {
+  display: contents;
+}
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0 auto;
+  width: 85vw;
+  position: relative;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
+}
+figcaption {
+  font-size: 0.9rem;
+  /* background: black; */
+  position: relative;
+  width: fit-content;
+  bottom: 0px;
+  /* color: white; */
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px dashed white;
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
+}
+.post {
+  padding: 20px 0;
+  border-bottom: 1px solid @green;
+}
+.bloque {
+  margin: 5px;
+  padding: 20px;
+}
+.wp-block-button {
+  &.info {
+    background-color: @brown;
+    width: max-content;
+    padding: 8px 30px;
+    margin: 0 auto;
+    color: @white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+  }
+}
+
+// RAMAS
+.ramas {
+  position: fixed;
+  bottom: -93vh;
+  right: -26vw;
+  z-index: 0;
+  svg {
+    width: 77vw;
+  }
+}
+
+// MARIPOSAS
+.mariposas-color {
+  background-image: url("../../../img/mariposas-colores.png");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.mariposa-inicio {
+  z-index: 3;
+  position: relative;
 }
 
 // MENU
