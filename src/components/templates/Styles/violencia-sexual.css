@@ -368,6 +368,14 @@ pre {
     transform: translate(40vw, 40vh);
   }
 }
+.App .ramas {
+  position: absolute;
+  bottom: -120vh;
+  right: -35vw;
+}
+.App .ramas svg {
+  width: 90vw;
+}
 .menu {
   position: fixed;
   top: 0;

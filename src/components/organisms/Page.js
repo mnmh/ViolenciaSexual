@@ -14,6 +14,7 @@ import "photoswipe/dist/photoswipe.css";
 import { Gallery, Item } from "react-photoswipe-gallery"; */
 
 import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
+
 import Mariposa from "../molecules/Mariposa.js";
 
 const queryParams = new URLSearchParams(window.location.search);
