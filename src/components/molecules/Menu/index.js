@@ -8,8 +8,8 @@ const Menu = ({ goToIndex }) => {
       </div>
       <button onClick={() => goToIndex(0)}>Index 0</button>
       <button onClick={() => goToIndex(1)}>Index 1</button>
-      <button onClick={() => goToIndex(40)}>Index 40</button>
-      <button onClick={() => goToIndex(69)}>Index 69</button>
+      <button onClick={() => goToIndex(44)}>Index 44</button>
+      <button onClick={() => goToIndex(79)}>Index 79</button>
     </div>
   );
 };

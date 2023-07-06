@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       show: false,
+      visible: true,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -24,9 +25,10 @@ class App extends Component {
   };
 
   render() {
+    const { visible } = this.state;
     return (
       <div className="App">
-        <Ramas />
+        <Ramas visible={visible} />
         <Template />
         <Page />
       </div>

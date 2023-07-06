@@ -26,12 +26,12 @@ export const handlerSlideChange = (swiper, currentIndex, totalSlides) => {
       document.body.classList.add("beige");
       //swiper.update();
       break;
-    case 40: // segundo eje
+    case 44: // segundo eje
       // console.log("cambiar a horizontal");
       //swiper.changeDirection("horizontal");
 
       setTimeout(() => {
-        swiper.slideToLoop(40);
+        swiper.slideToLoop(44);
         // console.log("new index: " + currentIndex);
       }, 500);
       document.body.classList.remove("beige");
@@ -40,12 +40,12 @@ export const handlerSlideChange = (swiper, currentIndex, totalSlides) => {
       document.body.classList.add("verde");
       //swiper.update();
       break;
-    case 69: // tercer eje
+    case 77: // tercer eje
       // console.log("cambiar a vertical");
       //swiper.changeDirection("vertical");
 
       setTimeout(() => {
-        swiper.slideToLoop(69);
+        swiper.slideToLoop(77);
         // console.log("new index: " + currentIndex);
       }, 500);
       document.body.classList.remove("beige");

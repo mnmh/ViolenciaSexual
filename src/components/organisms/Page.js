@@ -65,10 +65,6 @@ class Page extends React.Component {
     const { swiper } = this.state;
     if (swiper) {
       swiper.slideTo(index);
-    } else {
-      setTimeout(() => {
-        this.goToIndex(index);
-      }, 100);
     }
   };
 
@@ -120,7 +116,7 @@ class Page extends React.Component {
                 backgroundImage:
                   "url(https://museodememoria.gov.co/wp-content/uploads/2022/12/cuerpo.png)",
               }}
-              data-swiper-parallax="-100%"
+              data-swiper-parallax="-100"
             ></div>
             {this.state.blocks.map((block, i) => (
               <SwiperSlide key={`block-${i}`}>
