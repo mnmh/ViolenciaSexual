@@ -274,12 +274,31 @@ pre {
 
   .parallax-bg {
     position: absolute;
-    left: 0;
-    top: 40vh;
-    width: 130%;
-    height: 500vh;
-    background-size: cover;
+    background-size: contain;
     background-position: top;
+    background-repeat: no-repeat;
+
+    &.cuerpo1 {
+      left: 37vw;
+      top: 110vh;
+      width: 130%;
+      height: 900vh;
+      background-image: url(../../../img/cuerpo.png);
+    }
+    &.cuerpo2 {
+      right: 37vw;
+      top: 610vh;
+      width: 130%;
+      height: 900vh;
+      background-image: url(../../../img/cuerpo.png);
+    }
+    &.cuerpo3 {
+      left: 37vw;
+      top: 1310vh;
+      width: 150%;
+      height: 1100vh;
+      background-image: url(../../../img/cuerpo.png);
+    }
   }
 
   img.thumb {

@@ -85,6 +85,7 @@ class Page extends React.Component {
             spaceBetween={0}
             slidesPerView={1}
             cssMode={true}
+            parallax={true}
             modules={[Parallax, Pagination]}
             pagination={{
               clickable: true,
@@ -111,11 +112,18 @@ class Page extends React.Component {
             <Mariposasdecolor visible={visible} />
             <div
               slot="container-start"
-              className="parallax-bg"
-              style={{
-                backgroundImage: "url(../../../../img/cuerpo.svg)",
-              }}
-              data-swiper-parallax="-100"
+              className="parallax-bg cuerpo1"
+              data-swiper-parallax="-200%"
+            ></div>
+            <div
+              slot="container-start"
+              className="parallax-bg cuerpo2"
+              data-swiper-parallax="-200%"
+            ></div>
+            <div
+              slot="container-start"
+              className="parallax-bg cuerpo3"
+              data-swiper-parallax="-200%"
             ></div>
             {this.state.blocks.map((block, i) => (
               <SwiperSlide key={`block-${i}`}>
