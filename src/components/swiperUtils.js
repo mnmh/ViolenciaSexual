@@ -22,8 +22,8 @@ export const handlerSlideChange = (swiper, currentIndex, totalSlides) => {
       document.body.classList.add("verde");
 
       break;
-    case 75: // tercer eje
-      swiper.slideToLoop(75);
+    case 74: // tercer eje
+      swiper.slideToLoop(74);
       document.body.classList.remove("beige");
       document.body.classList.remove("verde");
       document.body.classList.remove("lila");

@@ -15,9 +15,9 @@
 @font-face {
   font-family: 'Mulish';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexU1WwaA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexZNRwaA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Prata';
@@ -207,6 +207,8 @@ body {
   color: #422422;
   background-color: #7a157d;
   transition: background-color 0.5s ease-in-out;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
 }
 body .container {
   margin: 0 auto;
@@ -220,7 +222,6 @@ body h4 {
   color: #ffffff;
   font-weight: 600;
   margin: 0;
-  text-shadow: 1px 1px 2px #422422;
   letter-spacing: 5px;
 }
 body h2 {
@@ -241,11 +242,6 @@ body h3 {
   body h3 {
     font-size: 1.5rem;
   }
-}
-body p,
-body span,
-body a {
-  font-family: "Mulish", sans-serif;
 }
 body p {
   font-size: 1.4rem;
@@ -276,11 +272,30 @@ body.lila {
 body.beige {
   background-color: #d8b69d;
 }
+body.beige h2 {
+  color: #ffffff;
+}
+body.beige h3 {
+  color: #422422;
+}
 body.verde {
   background-color: #b8c7b7;
 }
+body.verde h2 {
+  color: #2c3f21;
+}
+body.verde h3 {
+  color: #6a7564;
+}
 body.naranja {
   background-color: #f69b02;
+  color: #3f2771;
+}
+body.naranja h2 {
+  color: #a20027;
+}
+body.naranja h3 {
+  color: #3f2771;
 }
 .item {
   position: relative;

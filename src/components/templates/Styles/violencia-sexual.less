@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&family=Covered+By+Your+Grace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&family=Prata&family=Covered+By+Your+Grace&display=swap");
 @import "./slides.less";
 
 /**** Global Color ***/
@@ -21,6 +21,8 @@ body {
   color: @text-color;
   background-color: @lila;
   transition: background-color 0.5s ease-in-out;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
   .container {
     //max-width: 1000px;
     margin: 0 auto;
@@ -35,7 +37,7 @@ body {
     color: @white;
     font-weight: 600;
     margin: 0;
-    text-shadow: 1px 1px 2px @text-color;
+    //text-shadow: 1px 1px 2px @text-color;
     letter-spacing: 5px;
   }
 
@@ -56,12 +58,6 @@ body {
     @media (max-width: 600px) {
       font-size: 1.5rem;
     }
-  }
-
-  p,
-  span,
-  a {
-    font-family: "Mulish", sans-serif;
   }
 
   p {
@@ -88,12 +84,31 @@ body {
   }
   &.beige {
     background-color: @beige;
+    h2 {
+      color: @white;
+    }
+    h3 {
+      color: @text-color;
+    }
   }
   &.verde {
     background-color: @light-green;
+    h2 {
+      color: @dark-green;
+    }
+    h3 {
+      color: @green;
+    }
   }
   &.naranja {
     background-color: @orange;
+    color: @violet;
+    h2 {
+      color: @dark-orange;
+    }
+    h3 {
+      color: @violet;
+    }
   }
 }
 

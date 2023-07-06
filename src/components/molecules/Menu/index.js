@@ -9,7 +9,7 @@ const Menu = ({ goToIndex }) => {
       <div onClick={() => goToIndex(41)} className="circle green">
         <div className="txt">Voces que irrumpen</div>
       </div>
-      <div onClick={() => goToIndex(75)} className="circle orange">
+      <div onClick={() => goToIndex(74)} className="circle orange">
         <div className="txt">Nunca será lo mismo</div>
       </div>
     </div>
