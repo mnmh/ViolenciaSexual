@@ -8,10 +8,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./Swiper/swiper.css"; // core Swiper
 import "./Swiper/pagination/pagination.min.css"; // Pagination module
 import { handlerSlideChange } from "../swiperUtils.js";
-
-/* 
 import "photoswipe/dist/photoswipe.css";
-import { Gallery, Item } from "react-photoswipe-gallery"; */
+
+import { Gallery, Item } from "react-photoswipe-gallery";
 
 import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
 
@@ -125,11 +124,26 @@ class Page extends React.Component {
               className="parallax-bg cuerpo3"
               data-swiper-parallax="-200%"
             ></div>
-            {this.state.blocks.map((block, i) => (
-              <SwiperSlide key={`block-${i}`}>
-                <div className="block-container">{block}</div>
+            {this.state.blocks.map((block) => (
+              <SwiperSlide key={block.key}>
+                {(block.props.className || "").includes("wp-block-gallery") ? (
+                  <Gallery withCaption>
+                    <Item key={block.key}>
+                      {() => (
+                        <>
+                          <div className="item-imagen">
+                            {block.props.children}
+                          </div>
+                        </>
+                      )}
+                    </Item>
+                  </Gallery>
+                ) : (
+                  <div className="block-container mt-50">{block}</div>
+                )}
               </SwiperSlide>
             ))}
+
             <Mariposa />
           </Swiper>
         </div>
