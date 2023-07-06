@@ -16,6 +16,9 @@ import { Gallery, Item } from "react-photoswipe-gallery"; */
 import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
 
 import Mariposa from "../molecules/Mariposa.js";
+import BotonInicio from "../molecules/BotonInicio.js";
+
+import Mariposasdecolor from "../atoms/Mariposasdecolor.js";
 
 const queryParams = new URLSearchParams(window.location.search);
 const pagina = queryParams.get("pagina");
@@ -28,7 +31,7 @@ const parser = (input) =>
     replace: (domNode) => {
       if (
         domNode instanceof Element &&
-        domNode.attribs.class === "imagen-modal"
+        domNode.attribs.class === "block-container"
       ) {
         return <></>;
       }
@@ -40,6 +43,12 @@ class Page extends React.Component {
     blocks: [],
     title: "",
     type: "",
+  };
+
+  toggleVisibility = () => {
+    this.setState((prevState) => ({
+      visible: !prevState.visible,
+    }));
   };
 
   componentDidMount() {
@@ -64,7 +73,7 @@ class Page extends React.Component {
   };
 
   render() {
-    const { isVisible } = this.state;
+    const { visible } = this.state;
 
     return (
       <>
@@ -72,6 +81,7 @@ class Page extends React.Component {
         {/* <MenuLineas /> */}
         <div className="container">
           <Swiper
+            centeredSlides={true}
             observer={true}
             keyboard={true}
             direction={"vertical"}
@@ -102,6 +112,7 @@ class Page extends React.Component {
               document.querySelectorAll("video").forEach((el) => el.pause());
             }}
           >
+            <Mariposasdecolor visible={visible} />
             <div
               slot="container-start"
               className="parallax-bg"
@@ -119,8 +130,8 @@ class Page extends React.Component {
             <Mariposa />
           </Swiper>
         </div>
-        {isVisible && <div className="cortina backgroundAnimated"></div>}
-        {/*<Menu goToIndex={this.goToIndex} />*/}
+
+        <Menu goToIndex={this.goToIndex} />
       </>
     );
   }

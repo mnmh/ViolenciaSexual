@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Covered By Your Grace';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/coveredbyyourgrace/v15/QGYwz-AZahWOJJI9kykWW9mD6opopoqXSOS0Fg.ttf) format('truetype');
+}
+@font-face {
   font-family: 'Mulish';
   font-style: normal;
   font-weight: 300;
@@ -213,18 +220,12 @@ body h4 {
   color: #ffffff;
   font-weight: 600;
   margin: 0;
-  text-shadow: 2px 2px 6px #422422;
-}
-body h1 {
-  font-size: 4rem;
-}
-@media (max-width: 600px) {
-  body h1 {
-    font-size: 3rem;
-  }
+  text-shadow: 1px 1px 2px #422422;
+  letter-spacing: 5px;
 }
 body h2 {
   font-size: 5rem;
+  font-family: "Covered By Your Grace", cursive;
 }
 @media (max-width: 600px) {
   body h2 {
@@ -254,6 +255,10 @@ body p {
   body p {
     font-size: 1rem;
   }
+}
+body .subtitulo-sec {
+  font-size: 1.5em;
+  color: #ffffff;
 }
 body cite {
   font-size: 0.9rem;
@@ -346,35 +351,27 @@ pre {
   font-size: 1.1rem;
   border-radius: 15px;
 }
-.App .cortina {
-  width: 100vw;
-  height: 100vh;
-  background-color: #ffffff;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  animation: background-color 1s infinite;
-}
-.App .cortina::before {
-  content: url("../../../img/cnmh-loading.gif");
-  top: 0;
-  transform: translate(50vw, 45vh);
-  position: absolute;
-}
-@media (max-width: 600px) {
-  .App .cortina::before {
-    transform: translate(40vw, 40vh);
-  }
-}
 .App .ramas {
   position: absolute;
-  bottom: -120vh;
-  right: -35vw;
+  bottom: -93vh;
+  right: -26vw;
+  z-index: 0;
 }
 .App .ramas svg {
-  width: 90vw;
+  width: 77vw;
+}
+.App .mariposas-color {
+  background-image: url("../../../img/mariposas-colores.png");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.App .mariposa-inicio {
+  z-index: 3;
+  position: relative;
 }
 .menu {
   position: fixed;
@@ -388,6 +385,10 @@ pre {
 }
 .swiper {
   background-color: transparent;
+}
+.swiper iframe {
+  width: 80vw;
+  height: 70vh;
 }
 .swiper .parallax-bg {
   position: absolute;
@@ -413,39 +414,12 @@ pre {
 .swiper .block-container p {
   text-align: left;
 }
-.block-container > #slider-intro {
-  width: 100vw;
-  position: absolute;
-  left: 0;
-}
 #slider-intro {
   color: #ffffff;
-  min-height: 100vh;
-  position: relative;
-  top: 0;
-  width: 100%;
-}
-#slider-intro::before {
-  background-image: url("../../../img/rama_blanca.svg");
-  background-position: 150%;
-  background-repeat: no-repeat;
-  position: absolute;
-  display: inline-block;
-  z-index: -1;
-  background-size: contain;
-  content: "";
-  width: 100vw;
-  height: 100vh;
-}
-@media (min-width: 992px) {
-  #slider-intro::before {
-    left: -50vw;
-  }
 }
 #slider-intro .wp-block-group__inner-container {
   position: relative;
   display: inline-block;
-  top: 40vh;
 }
 .bgAnimated {
   position: absolute;

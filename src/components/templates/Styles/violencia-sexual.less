@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&family=Covered+By+Your+Grace&display=swap");
 @import "./slides.less";
 
 /**** Global Color ***/
@@ -35,17 +35,13 @@ body {
     color: @white;
     font-weight: 600;
     margin: 0;
-    text-shadow: 2px 2px 6px @text-color;
+    text-shadow: 1px 1px 2px @text-color;
+    letter-spacing: 5px;
   }
 
-  h1 {
-    font-size: 4rem;
-    @media (max-width: 600px) {
-      font-size: 3rem;
-    }
-  }
   h2 {
     font-size: 5rem;
+    font-family: "Covered By Your Grace", cursive;
     @media (max-width: 600px) {
       font-size: 4rem;
     }
@@ -72,6 +68,10 @@ body {
     @media (max-width: 600px) {
       font-size: 1rem;
     }
+  }
+  .subtitulo-sec {
+    font-size: 1.5em;
+    color: @white;
   }
   cite {
     font-size: 0.9rem;
@@ -161,36 +161,31 @@ pre {
       border-radius: 15px;
     }
   }
-  .cortina {
-    width: 100vw;
-    height: 100vh;
-    background-color: @white;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    animation: background-color 1s infinite;
-    &::before {
-      content: url("../../../img/cnmh-loading.gif");
-      top: 0;
-      transform: translate(50vw, 45vh);
-      position: absolute;
-      @media (max-width: 600px) {
-        transform: translate(40vw, 40vh);
-      }
-    }
-  }
 
   // RAMAS
   .ramas {
     position: absolute;
-    bottom: -120vh;
-    right: -35vw;
+    bottom: -93vh;
+    right: -26vw;
+    z-index: 0;
+    svg {
+      width: 77vw;
+    }
   }
 
-  .ramas svg {
-    width: 90vw;
+  // MARIPOSAS
+  .mariposas-color {
+    background-image: url("../../../img/mariposas-colores.png");
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .mariposa-inicio {
+    z-index: 3;
+    position: relative;
   }
 }
 
@@ -209,6 +204,14 @@ pre {
 // BLOQUES SWIPER
 .swiper {
   background-color: transparent;
+
+  // IFRAMES
+
+  iframe {
+    width: 80vw;
+    height: 70vh;
+  }
+
   .parallax-bg {
     position: absolute;
     left: 0;
@@ -238,39 +241,16 @@ pre {
 
 // INTRO
 
-.block-container > #slider-intro {
-  width: 100vw;
-  position: absolute;
-  left: 0;
-}
 #slider-intro {
   color: @white;
-  min-height: 100vh;
-  position: relative;
-  top: 0;
-  width: 100%;
 
-  &::before {
-    background-image: url("../../../img/rama_blanca.svg");
-    background-position: 150%;
-    background-repeat: no-repeat;
-    position: absolute;
-    display: inline-block;
-    z-index: -1;
-    background-size: contain;
-    content: "";
-    width: 100vw;
-    height: 100vh;
-    @media (min-width: 992px) {
-      left: -50vw;
-    }
-  }
   .wp-block-group__inner-container {
     position: relative;
     display: inline-block;
-    top: 40vh;
+    //top: 40vh;
   }
 }
+
 .bgAnimated {
   position: absolute;
   right: 44vw;

@@ -3,7 +3,7 @@ import Page from "./components/organisms/Page.js";
 import Template from "./components/templates/DynamicStyle.js";
 import "./App.css";
 
-import Ramas from "./components/atoms/Ramas/index.js"; // Importa el componente de ramas
+import Ramas from "./components/atoms/Ramas.js"; // Importa el componente de ramas
 
 class App extends Component {
   constructor() {
