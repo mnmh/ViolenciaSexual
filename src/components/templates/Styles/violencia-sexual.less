@@ -90,7 +90,7 @@ body {
     background-color: @beige;
   }
   &.verde {
-    background-color: @green;
+    background-color: @light-green;
   }
   &.naranja {
     background-color: @orange;
@@ -196,12 +196,53 @@ pre {
 // MENU
 .menu {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
+  top: 40vh;
+  left: 4vw;
+  z-index: 9;
   width: 70px;
   &.hide {
     visibility: hidden;
+  }
+  .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 10px 0;
+    &:hover {
+      .txt {
+        visibility: visible;
+        background-color: @white;
+      }
+    }
+    .txt {
+      position: relative;
+      left: 60px;
+      width: max-content;
+      top: 16px;
+      visibility: hidden;
+      color: @text-color;
+      padding: 3px 5px;
+    }
+    &.beige {
+      background-color: @beige;
+      &:hover {
+        background-color: @brown;
+      }
+    }
+    &.green {
+      background-color: @green;
+      &:hover {
+        background-color: @dark-green;
+      }
+    }
+    &.orange {
+      background-color: @orange;
+      &:hover {
+        background-color: @dark-orange;
+      }
+    }
   }
 }
 

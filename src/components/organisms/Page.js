@@ -113,8 +113,7 @@ class Page extends React.Component {
               slot="container-start"
               className="parallax-bg"
               style={{
-                backgroundImage:
-                  "url(https://museodememoria.gov.co/wp-content/uploads/2022/12/cuerpo.png)",
+                backgroundImage: "url(../../../../img/cuerpo.svg)",
               }}
               data-swiper-parallax="-100"
             ></div>

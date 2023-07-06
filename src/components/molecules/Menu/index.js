@@ -2,14 +2,16 @@ import React from "react";
 
 const Menu = ({ goToIndex }) => {
   return (
-    <div id="menu-especial" className="menu hide">
-      <div onClick={() => goToIndex(1)} className="eje1">
-        click
+    <div id="menu-especial" className="menu">
+      <div onClick={() => goToIndex(1)} className="circle beige">
+        <div className="txt">Sacar a flote</div>
       </div>
-      <button onClick={() => goToIndex(0)}>Index 0</button>
-      <button onClick={() => goToIndex(1)}>Index 1</button>
-      <button onClick={() => goToIndex(44)}>Index 44</button>
-      <button onClick={() => goToIndex(79)}>Index 79</button>
+      <div onClick={() => goToIndex(41)} className="circle green">
+        <div className="txt">Voces que irrumpen</div>
+      </div>
+      <div onClick={() => goToIndex(75)} className="circle orange">
+        <div className="txt">Nunca será lo mismo</div>
+      </div>
     </div>
   );
 };

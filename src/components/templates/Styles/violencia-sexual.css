@@ -277,7 +277,7 @@ body.beige {
   background-color: #d8b69d;
 }
 body.verde {
-  background-color: #6a7564;
+  background-color: #b8c7b7;
 }
 body.naranja {
   background-color: #f69b02;
@@ -377,13 +377,52 @@ pre {
 }
 .menu {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
+  top: 40vh;
+  left: 4vw;
+  z-index: 9;
   width: 70px;
 }
 .menu.hide {
   visibility: hidden;
+}
+.menu .circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+  margin: 10px 0;
+}
+.menu .circle:hover .txt {
+  visibility: visible;
+  background-color: #ffffff;
+}
+.menu .circle .txt {
+  position: relative;
+  left: 60px;
+  width: max-content;
+  top: 16px;
+  visibility: hidden;
+  color: #422422;
+  padding: 3px 5px;
+}
+.menu .circle.beige {
+  background-color: #d8b69d;
+}
+.menu .circle.beige:hover {
+  background-color: #9b6446;
+}
+.menu .circle.green {
+  background-color: #6a7564;
+}
+.menu .circle.green:hover {
+  background-color: #2c3f21;
+}
+.menu .circle.orange {
+  background-color: #f69b02;
+}
+.menu .circle.orange:hover {
+  background-color: #a20027;
 }
 .swiper {
   background-color: transparent;
