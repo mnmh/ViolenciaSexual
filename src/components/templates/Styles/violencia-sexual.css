@@ -339,6 +339,9 @@ pre {
 .App .wp-block-audio.audio-mariposa + div {
   display: none;
 }
+.App .wp-block-embed + div {
+  display: none;
+}
 .App .wp-block-audio::before {
   content: "";
   background-image: url("../../../img/calltoaction-audios.png");
