@@ -188,10 +188,7 @@ class Page extends React.Component {
               data-swiper-parallax="-200%"
             ></div>
             {this.state.blocks.map((block) => {
-              if (
-                block.type === "figure" &&
-                block.props.className.includes("wp-block-gallery")
-              ) {
+              if (block.type === "figure") {
                 const srcValues = [];
                 const traverseChildren = (children) => {
                   if (children) {
