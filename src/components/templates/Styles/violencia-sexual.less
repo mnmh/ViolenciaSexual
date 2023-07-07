@@ -142,6 +142,9 @@ pre {
   .wp-block-gallery figure.wp-block-image img {
     max-height: 90vh;
   }
+  .wp-block-image > img {
+    display: none;
+  }
 
   .wp-block-audio::before {
     content: "";
@@ -192,6 +195,10 @@ figure {
   margin: 0 auto;
   width: 85vw;
   position: relative;
+  &.wp-block-audio > figcaption {
+    top: 12vh;
+    left: 46vw;
+  }
   ul {
     list-style-type: none;
     margin: 0;
@@ -202,14 +209,11 @@ figcaption {
   font-size: 0.9rem;
   background: rgba(255, 255, 255, 0.8);
   position: absolute;
-  width: -moz-fit-content;
   width: fit-content;
-  bottom: 0px;
-  /* color: white; */
+  top: 50vh;
   padding: 10px;
-  margin: 0 auto;
-  left: 70%;
-  bottom: 5%;
+  left: 70vw;
+  height: fit-content;
   @media (max-width: 600px) {
     font-size: 0.7rem;
   }

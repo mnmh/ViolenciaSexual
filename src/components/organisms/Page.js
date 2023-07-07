@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import parse, { Element } from "html-react-parser";
 
@@ -8,14 +9,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./Swiper/swiper.css"; // core Swiper
 import "./Swiper/pagination/pagination.min.css"; // Pagination module
 import { handlerSlideChange } from "../swiperUtils.js";
-import "photoswipe/dist/photoswipe.css";
 
-import { Gallery, Item } from "react-photoswipe-gallery";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
 
 import Mariposa from "../molecules/Mariposa.js";
-import BotonInicio from "../molecules/BotonInicio.js";
 
 import Mariposasdecolor from "../atoms/Mariposasdecolor.js";
 
@@ -36,6 +36,53 @@ const parser = (input) =>
       }
     },
   });
+
+class ImageLightbox extends React.Component {
+  state = {
+    isOpen: false,
+    shouldZoomIn: false,
+  };
+
+  openLightbox = () => {
+    this.setState({ isOpen: true, shouldZoomIn: true });
+  };
+
+  closeLightbox = () => {
+    this.setState({ isOpen: false });
+  };
+
+  handleAfterOpen = () => {
+    if (this.state.shouldZoomIn) {
+      const zoomInButton = document.querySelector(".ril-zoom-in-button");
+      if (zoomInButton) {
+        zoomInButton.click();
+      }
+      this.setState({ shouldZoomIn: false });
+    }
+  };
+
+  render() {
+    const { src } = this.props;
+    const { isOpen } = this.state;
+
+    return (
+      <>
+        <div onClick={this.openLightbox}>
+          <img src={src} alt="Imagen" />
+        </div>
+        {isOpen && (
+          <Lightbox
+            mainSrc={src}
+            onCloseRequest={this.closeLightbox}
+            enableZoom={true}
+            defaultZoomStep={2} // Establecer el zoom inicial en 200% (valor de escala 2)
+            onAfterOpen={this.handleAfterOpen}
+          />
+        )}
+      </>
+    );
+  }
+}
 
 class Page extends React.Component {
   state = {
@@ -69,6 +116,22 @@ class Page extends React.Component {
 
   render() {
     const { visible } = this.state;
+
+    const data = [
+      // El arreglo de objetos proporcionado
+      // ...
+    ];
+
+    const srcValues = data.reduce((accumulator, block) => {
+      if (block.props && block.props.children) {
+        block.props.children.forEach((child) => {
+          if (child.props && child.props.src) {
+            accumulator.push(child.props.src);
+          }
+        });
+      }
+      return accumulator;
+    }, []);
 
     return (
       <>
@@ -124,25 +187,43 @@ class Page extends React.Component {
               className="parallax-bg cuerpo3"
               data-swiper-parallax="-200%"
             ></div>
-            {this.state.blocks.map((block) => (
-              <SwiperSlide key={block.key}>
-                {(block.props.className || "").includes("wp-block-gallery") ? (
-                  <Gallery withCaption>
-                    <Item key={block.key}>
-                      {() => (
-                        <>
-                          <div className="item-imagen">
-                            {block.props.children}
-                          </div>
-                        </>
-                      )}
-                    </Item>
-                  </Gallery>
-                ) : (
-                  <div className="block-container mt-50">{block}</div>
-                )}
-              </SwiperSlide>
-            ))}
+            {this.state.blocks.map((block) => {
+              console.log(block);
+              if (
+                block.type === "figure" &&
+                block.props.className.includes("wp-block-gallery")
+              ) {
+                const srcValues = [];
+                const traverseChildren = (children) => {
+                  if (children) {
+                    React.Children.toArray(children).forEach((child) => {
+                      if (child.props && child.props.src) {
+                        srcValues.push(child.props.src);
+                      }
+                      traverseChildren(child.props && child.props.children);
+                    });
+                  }
+                };
+                traverseChildren(block.props && block.props.children);
+
+                return (
+                  <SwiperSlide key={block.key}>
+                    {srcValues.map((src, index) => (
+                      <div key={index}>
+                        {block}
+                        <ImageLightbox src={src} />
+                      </div>
+                    ))}
+                  </SwiperSlide>
+                );
+              } else {
+                return (
+                  <SwiperSlide key={block.key}>
+                    <div className="block-container mt-50">{block}</div>
+                  </SwiperSlide>
+                );
+              }
+            })}
 
             <Mariposa />
           </Swiper>
