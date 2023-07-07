@@ -332,14 +332,14 @@ pre {
 }
 .App .wp-block-audio::before {
   content: "";
-  background-image: url("../../../img/mariposa-audio.png");
-  width: 45%;
+  background-image: url("../../../img/calltoaction-audios.png");
+  width: 25%;
   height: 30vh;
   position: absolute;
-  bottom: -26px;
+  bottom: -80px;
   background-repeat: no-repeat;
   background-position: top;
-  right: 443px;
+  left: 20%;
   background-size: contain;
 }
 .App .wp-block-buttons {
