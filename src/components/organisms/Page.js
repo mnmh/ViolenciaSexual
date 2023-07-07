@@ -68,7 +68,7 @@ class ImageLightbox extends React.Component {
     return (
       <>
         <div onClick={this.openLightbox}>
-          <img src={src} alt="Imagen" />
+          <img className="imagen-zoomeable" src={src} alt="Imagen" />
         </div>
         {isOpen && (
           <Lightbox

@@ -333,6 +333,12 @@ pre {
 .App .wp-block-image > img {
   display: none;
 }
+.App img.imagen-zoomeable:hover {
+  cursor: url(../../../img/hand.png), auto;
+}
+.App .wp-block-audio.audio-mariposa + div {
+  display: none;
+}
 .App .wp-block-audio::before {
   content: "";
   background-image: url("../../../img/calltoaction-audios.png");
