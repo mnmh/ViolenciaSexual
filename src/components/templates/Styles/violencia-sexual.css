@@ -293,6 +293,7 @@ body.naranja {
 }
 body.naranja h2 {
   color: #a20027;
+  font-size: 3rem;
 }
 body.naranja h3 {
   color: #3f2771;
@@ -412,6 +413,9 @@ figcaption {
 @media (max-width: 600px) {
   figcaption {
     font-size: 0.7rem;
+    top: 85vh;
+    left: 0vw;
+    width: 100%;
   }
 }
 .post {
