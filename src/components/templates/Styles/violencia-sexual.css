@@ -387,6 +387,9 @@ figure {
   width: 85vw;
   position: relative;
 }
+figure.visible > img {
+  display: block !important;
+}
 figure.wp-block-audio > figcaption {
   top: 12vh;
   left: 46vw;
