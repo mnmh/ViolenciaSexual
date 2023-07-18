@@ -300,7 +300,11 @@ figcaption {
     border: 1px solid black;
     cursor: pointer;
     margin: 10px 0;
-    &:hover {
+    @media (max-width: 767.98px) {
+      width: 30px;
+      height: 30px;
+    }
+    &:active {
       .txt {
         visibility: visible;
         background-color: @white;
@@ -317,19 +321,19 @@ figcaption {
     }
     &.beige {
       background-color: @beige;
-      &:hover {
+      &:active {
         background-color: @brown;
       }
     }
     &.green {
       background-color: @green;
-      &:hover {
+      &:active {
         background-color: @dark-green;
       }
     }
     &.orange {
       background-color: @orange;
-      &:hover {
+      &:active {
         background-color: @dark-orange;
       }
     }

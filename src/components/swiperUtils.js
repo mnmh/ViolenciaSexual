@@ -1,4 +1,4 @@
-export const handlerSlideChange = (swiper, currentIndex, totalSlides) => {
+export const handlerSlideChange = (swiper, currentIndex) => {
   switch (currentIndex) {
     case 0:
       document.body.classList.remove("beige");

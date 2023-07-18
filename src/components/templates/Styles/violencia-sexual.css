@@ -475,7 +475,13 @@ figcaption {
   cursor: pointer;
   margin: 10px 0;
 }
-.menu .circle:hover .txt {
+@media (max-width: 767.98px) {
+  .menu .circle {
+    width: 30px;
+    height: 30px;
+  }
+}
+.menu .circle:active .txt {
   visibility: visible;
   background-color: #ffffff;
 }
@@ -491,19 +497,19 @@ figcaption {
 .menu .circle.beige {
   background-color: #d8b69d;
 }
-.menu .circle.beige:hover {
+.menu .circle.beige:active {
   background-color: #9b6446;
 }
 .menu .circle.green {
   background-color: #6a7564;
 }
-.menu .circle.green:hover {
+.menu .circle.green:active {
   background-color: #2c3f21;
 }
 .menu .circle.orange {
   background-color: #f69b02;
 }
-.menu .circle.orange:hover {
+.menu .circle.orange:active {
   background-color: #a20027;
 }
 .swiper {
