@@ -313,6 +313,15 @@ body.naranja h3 {
 .mt-50 {
   margin-top: 50px;
 }
+.box-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-centered button {
+  width: 50vw;
+  height: 30vh;
+}
 pre {
   white-space: pre-wrap;
   /* Since CSS 2.1 */
@@ -331,10 +340,7 @@ pre {
 .App .wp-block-gallery figure.wp-block-image img {
   max-height: 90vh;
 }
-.App .wp-block-image > img {
-  display: none;
-}
-.App img.imagen-zoomeable:hover {
+.App figure.imagen-zoomeable:hover {
   cursor: url(../../../img/hand.png), auto;
 }
 .App .wp-block-audio.audio-mariposa + div {
@@ -603,7 +609,6 @@ a.wp-block-button__link {
 .swiper-slide img.thumb {
   max-height: 25%;
   width: auto;
-  display: none;
   margin: 10px auto;
 }
 .swiper-slide img.thumb:first-child {

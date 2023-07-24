@@ -130,6 +130,16 @@ body {
 .mt-50 {
   margin-top: 50px;
 }
+.box-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    width: 50vw;
+    height: 30vh;
+  }
+}
+
 pre {
   white-space: pre-wrap; /* Since CSS 2.1 */
   white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
@@ -143,11 +153,8 @@ pre {
   .wp-block-gallery figure.wp-block-image img {
     max-height: 90vh;
   }
-  .wp-block-image > img {
-    display: none;
-  }
 
-  img.imagen-zoomeable:hover {
+  figure.imagen-zoomeable:hover {
     cursor: url(../../../img/hand.png), auto;
   }
 
@@ -440,7 +447,6 @@ a.wp-block-button__link {
   img.thumb {
     max-height: 25%;
     width: auto;
-    display: none;
     margin: 10px auto;
     &:first-child {
       display: block;

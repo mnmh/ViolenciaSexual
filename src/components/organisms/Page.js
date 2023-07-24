@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
 import parse, { Element } from "html-react-parser";
+import ImageLightbox from "./ImageLightbox.js";
 
 // Swiper
 import { Parallax, Pagination } from "swiper";
@@ -9,9 +9,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./Swiper/swiper.css"; // core Swiper
 import "./Swiper/pagination/pagination.min.css"; // Pagination module
 import { handlerSlideChange } from "../swiperUtils.js";
-
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
 
 import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
 
@@ -32,63 +29,17 @@ const parser = (input) =>
         domNode instanceof Element &&
         domNode.attribs.class === "block-container"
       ) {
-        return <></>;
+        return domNode; // Devuelve el nodo original en lugar de un fragmento vacío
       }
     },
   });
-
-class ImageLightbox extends React.Component {
-  state = {
-    isOpen: false,
-    shouldZoomIn: false,
-  };
-
-  openLightbox = () => {
-    this.setState({ isOpen: true, shouldZoomIn: true });
-  };
-
-  closeLightbox = () => {
-    this.setState({ isOpen: false });
-  };
-
-  handleAfterOpen = () => {
-    if (this.state.shouldZoomIn) {
-      const zoomInButton = document.querySelector(".ril-zoom-in-button");
-      if (zoomInButton) {
-        zoomInButton.click();
-      }
-      this.setState({ shouldZoomIn: false });
-    }
-  };
-
-  render() {
-    const { src } = this.props;
-    const { isOpen } = this.state;
-
-    return (
-      <>
-        <div onClick={this.openLightbox}>
-          <img className="imagen-zoomeable" src={src} alt="Imagen" />
-        </div>
-        {isOpen && (
-          <Lightbox
-            mainSrc={src}
-            onCloseRequest={this.closeLightbox}
-            enableZoom={true}
-            defaultZoomStep={2} // Establecer el zoom inicial en 200% (valor de escala 2)
-            onAfterOpen={this.handleAfterOpen}
-          />
-        )}
-      </>
-    );
-  }
-}
-
 class Page extends React.Component {
   state = {
     blocks: [],
     title: "",
     type: "",
+    lightboxImages: [], // Agrega un estado para almacenar las imágenes de la galería
+    isLightboxOpen: false, // Agrega un estado para indicar si la galería está abierta o no
   };
 
   toggleVisibility = () => {
@@ -104,6 +55,19 @@ class Page extends React.Component {
       const type = response.data.type;
 
       this.setState({ blocks, title, type });
+
+      // Busca todos los bloques que contengan la clase "has-nested-images" y extrae las imágenes
+      const lightboxImages = blocks.reduce((accumulator, block) => {
+        if (block.props && block.props.className === "has-nested-images") {
+          const images = block.props.children.filter(
+            (child) => child.props && child.props.src
+          );
+          accumulator.push(...images);
+        }
+        return accumulator;
+      }, []);
+
+      this.setState({ lightboxImages });
     });
   }
 
@@ -114,14 +78,21 @@ class Page extends React.Component {
     }
   };
 
+  handleImageClick = () => {
+    this.setState({ isLightboxOpen: true });
+  };
+
+  handleClose = () => {
+    this.setState({ isLightboxOpen: false });
+  };
+
   render() {
-    const { visible } = this.state;
+    const { visible, lightboxImages, isLightboxOpen } = this.state;
 
     const data = [
       // El arreglo de objetos proporcionado
       // ...
     ];
-
     const srcValues = data.reduce((accumulator, block) => {
       if (block.props && block.props.children) {
         block.props.children.forEach((child) => {
@@ -166,7 +137,6 @@ class Page extends React.Component {
                 totalSlides,
                 this.handleAction
               );
-              console.log(currentIndex);
               document.querySelectorAll("audio").forEach((el) => el.pause());
               document.querySelectorAll("video").forEach((el) => el.pause());
             }}
@@ -187,37 +157,40 @@ class Page extends React.Component {
               className="parallax-bg cuerpo3"
               data-swiper-parallax="-200%"
             ></div>
+
             {this.state.blocks.map((block) => {
-              if (block.type === "figure") {
-                const srcValues = [];
-                const traverseChildren = (children) => {
-                  if (children) {
-                    React.Children.toArray(children).forEach((child) => {
-                      if (child.props && child.props.src) {
-                        srcValues.push(child.props.src);
-                      }
-                      traverseChildren(child.props && child.props.children);
-                    });
-                  }
-                };
-                traverseChildren(block.props && block.props.children);
+              if (
+                block.props &&
+                block.props.className &&
+                block.props.className.includes("has-nested-images") &&
+                Array.isArray(block.props.children)
+              ) {
+                // Crea un nuevo array de imágenes para el bloque
+                const images = block.props.children.filter(
+                  (child) => child.props && child.props.src
+                );
+
+                // Move the console.log() here, inside the map function
+                console.log(block);
 
                 return (
-                  <SwiperSlide key={block.key}>
-                    {srcValues.map((src, index) => (
-                      <div key={index}>
-                        {block}
-                        <ImageLightbox src={src} />
-                      </div>
-                    ))}
+                  <SwiperSlide key={`has-nested-images-` + block.key}>
+                    <button
+                      type="button"
+                      onClick={() => this.setState({ isLightboxOpen: true })}
+                    >
+                      Open Lightbox
+                    </button>
+                    {/* Renderiza el componente ImageLightbox dentro del SwiperSlide */}
+                    <ImageLightbox
+                      images={images}
+                      isOpen={isLightboxOpen}
+                      onClose={this.handleClose}
+                    />
                   </SwiperSlide>
                 );
               } else {
-                return (
-                  <SwiperSlide key={block.key}>
-                    <div className="block-container mt-50">{block}</div>
-                  </SwiperSlide>
-                );
+                return <SwiperSlide key={block.key}>{block}</SwiperSlide>;
               }
             })}
 
