@@ -9,7 +9,7 @@ SwiperCore.use([Navigation, Pagination]);
 
 class ImageLightbox extends React.Component {
   state = {
-    activeIndex: 0,
+    images: [],
   };
 
   handleSlideChange = (swiper) => {
@@ -22,25 +22,22 @@ class ImageLightbox extends React.Component {
 
   render() {
     const { images, isOpen } = this.props;
-    const { activeIndex } = this.state;
 
     return (
       <div className={`image-lightbox ${isOpen ? "open" : ""}`}>
         <div className="image-lightbox__close" onClick={this.handleClose}>
           X
         </div>
-        <Swiper
-          navigation
-          pagination={{ clickable: true }}
-          onSlideChange={this.handleSlideChange}
-          initialSlide={activeIndex}
-        >
-          {images.map((src, index) => (
-            <SwiperSlide key={index}>
-              <img src={src} alt={`Image ${index}`} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {/*console.log(images)*/}
+        {images.map((src, index) => (
+          /* console.log(src), */
+          <Lightbox
+            index={index}
+            images={src}
+            isOpen={isOpen}
+            onClose={handleClose}
+          />
+        ))}
       </div>
     );
   }

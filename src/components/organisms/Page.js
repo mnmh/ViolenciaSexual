@@ -48,20 +48,36 @@ class Page extends React.Component {
       const title = parser(response.data.title.rendered);
       const type = response.data.type;
 
-      this.setState({ blocks, title, type });
-
-      // Busca todos los bloques que contengan la clase "has-nested-images" y extrae las imágenes
-      const lightboxImages = blocks.reduce((accumulator, block) => {
-        if (block.props && block.props.className === "has-nested-images") {
-          const images = block.props.children.filter(
-            (child) => child.props && child.props.src
+      const srcList = blocks.props?.children?.reduce((accumulator, child) => {
+        if (
+          child.props &&
+          child.props.className &&
+          child.props.className.includes("has-nested-images")
+        ) {
+          const nestedImages = child.props.children.filter(
+            (nestedChild) =>
+              nestedChild.props &&
+              nestedChild.props.className &&
+              nestedChild.props.className.includes("wp-block-image") &&
+              nestedChild.props.children &&
+              nestedChild.props.children.props &&
+              nestedChild.props.children.props.src
           );
-          accumulator.push(...images);
+          accumulator.push(
+            ...nestedImages.map((image) => image.props.children.props.src)
+          );
         }
         return accumulator;
       }, []);
 
-      this.setState({ lightboxImages });
+      console.log(srcList);
+
+      this.setState({
+        blocks,
+        title,
+        type,
+        lightboxImages: srcList,
+      });
     });
   }
 
@@ -72,31 +88,8 @@ class Page extends React.Component {
     }
   };
 
-  handleImageClick = () => {
-    this.setState({ isLightboxOpen: true });
-  };
-
-  handleClose = () => {
-    this.setState({ isLightboxOpen: false });
-  };
-
   render() {
-    const { visible, lightboxImages, isLightboxOpen } = this.state;
-
-    const data = [
-      // El arreglo de objetos proporcionado
-      // ...
-    ];
-    const srcValues = data.reduce((accumulator, block) => {
-      if (block.props && block.props.children) {
-        block.props.children.forEach((child) => {
-          if (child.props && child.props.src) {
-            accumulator.push(child.props.src);
-          }
-        });
-      }
-      return accumulator;
-    }, []);
+    const { visible, blocks, title, type, lightboxImages, isOpen } = this.state;
 
     return (
       <>
@@ -160,17 +153,11 @@ class Page extends React.Component {
                 Array.isArray(block.props.children)
               ) {
                 // Crea un nuevo array de imágenes para el bloque
-                const images = block.props.children.filter(
+                const lightboxImages = block.props.children.filter(
                   (child) => child.props && child.props.src
                 );
-
-                //
-                console.log(
-                  `has-nested-images` + block.key + this.state.isOpen
-                );
-
                 return (
-                  <SwiperSlide key={`has-nested-images-` + block.key}>
+                  <SwiperSlide key={`has-nested-images-${block.key}`}>
                     <button
                       type="button"
                       onClick={() => this.setState({ isOpen: true })}
@@ -179,9 +166,9 @@ class Page extends React.Component {
                     </button>
                     {/* Renderiza el componente ImageLightbox dentro del SwiperSlide */}
                     <ImageLightbox
-                      images={images}
+                      images={lightboxImages}
                       isOpen={this.state.isOpen}
-                      onClose={this.handleClose}
+                      onClose={() => this.setState({ isOpen: false })}
                     />
                   </SwiperSlide>
                 );
