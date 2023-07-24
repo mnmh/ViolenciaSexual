@@ -1,10 +1,9 @@
+import "react-image-lightbox/style.css";
+import React from "react";
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
 import "swiper/swiper-bundle.css";
-
-import "react-image-lightbox/style.css";
-import React from "react";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -36,16 +35,11 @@ class ImageLightbox extends React.Component {
           onSlideChange={this.handleSlideChange}
           initialSlide={activeIndex}
         >
-          {images.map(
-            (src, index) => (
-              console.log(src),
-              (
-                <SwiperSlide key={index}>
-                  <img src={src} alt={`Image ${index}`} />
-                </SwiperSlide>
-              )
-            )
-          )}
+          {images.map((src, index) => (
+            <SwiperSlide key={index}>
+              <img src={src} alt={`Image ${index}`} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     );

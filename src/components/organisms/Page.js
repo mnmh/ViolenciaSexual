@@ -39,13 +39,7 @@ class Page extends React.Component {
     title: "",
     type: "",
     lightboxImages: [], // Agrega un estado para almacenar las imágenes de la galería
-    isLightboxOpen: false, // Agrega un estado para indicar si la galería está abierta o no
-  };
-
-  toggleVisibility = () => {
-    this.setState((prevState) => ({
-      visible: !prevState.visible,
-    }));
+    isOpen: false, // Agrega un estado para indicar si la galería está abierta o no
   };
 
   componentDidMount() {
@@ -170,21 +164,23 @@ class Page extends React.Component {
                   (child) => child.props && child.props.src
                 );
 
-                // Move the console.log() here, inside the map function
-                console.log(block);
+                //
+                console.log(
+                  `has-nested-images` + block.key + this.state.isOpen
+                );
 
                 return (
                   <SwiperSlide key={`has-nested-images-` + block.key}>
                     <button
                       type="button"
-                      onClick={() => this.setState({ isLightboxOpen: true })}
+                      onClick={() => this.setState({ isOpen: true })}
                     >
                       Open Lightbox
                     </button>
                     {/* Renderiza el componente ImageLightbox dentro del SwiperSlide */}
                     <ImageLightbox
                       images={images}
-                      isOpen={isLightboxOpen}
+                      isOpen={this.state.isOpen}
                       onClose={this.handleClose}
                     />
                   </SwiperSlide>
