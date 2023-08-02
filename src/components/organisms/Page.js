@@ -48,35 +48,10 @@ class Page extends React.Component {
       const title = parser(response.data.title.rendered);
       const type = response.data.type;
 
-      const srcList = blocks.props?.children?.reduce((accumulator, child) => {
-        if (
-          child.props &&
-          child.props.className &&
-          child.props.className.includes("has-nested-images")
-        ) {
-          const nestedImages = child.props.children.filter(
-            (nestedChild) =>
-              nestedChild.props &&
-              nestedChild.props.className &&
-              nestedChild.props.className.includes("wp-block-image") &&
-              nestedChild.props.children &&
-              nestedChild.props.children.props &&
-              nestedChild.props.children.props.src
-          );
-          accumulator.push(
-            ...nestedImages.map((image) => image.props.children.props.src)
-          );
-        }
-        return accumulator;
-      }, []);
-
-      console.log(srcList);
-
       this.setState({
         blocks,
         title,
         type,
-        lightboxImages: srcList,
       });
     });
   }
@@ -149,13 +124,35 @@ class Page extends React.Component {
               if (
                 block.props &&
                 block.props.className &&
-                block.props.className.includes("has-nested-images") &&
-                Array.isArray(block.props.children)
+                block.props.className.includes(
+                  "wp-block-gallery has-nested-images"
+                )
               ) {
-                // Crea un nuevo array de imágenes para el bloque
-                const lightboxImages = block.props.children.filter(
-                  (child) => child.props && child.props.src
-                );
+                console.log("include wp-block-gallery has-nested-images");
+
+                // Extraer los atributos src de cada imagen del objeto block
+                const lightboxImages = blocks.reduce((acc, block) => {
+                  if (
+                    block.props &&
+                    block.props.className &&
+                    block.props.className.includes(
+                      "wp-block-gallery has-nested-images"
+                    )
+                  ) {
+                    console.log("include wp-block-gallery has-nested-images");
+
+                    // Check that block.props.children is an array before calling filter
+                    if (Array.isArray(block.props.children)) {
+                      const imgs = block.props.children.filter(
+                        (child) => child.type === "img"
+                      );
+                      const srcs = imgs.map((img) => img.props.src);
+                      return [...acc, ...srcs];
+                    }
+                  }
+                  return acc;
+                }, []);
+
                 return (
                   <SwiperSlide key={`has-nested-images-${block.key}`}>
                     <button
@@ -164,12 +161,14 @@ class Page extends React.Component {
                     >
                       Open Lightbox
                     </button>
-                    {/* Renderiza el componente ImageLightbox dentro del SwiperSlide */}
+
                     <ImageLightbox
                       images={lightboxImages}
                       isOpen={this.state.isOpen}
                       onClose={() => this.setState({ isOpen: false })}
                     />
+
+                    {/* {block}*/}
                   </SwiperSlide>
                 );
               } else {
