@@ -124,51 +124,39 @@ class Page extends React.Component {
               if (
                 block.props &&
                 block.props.className &&
-                block.props.className.includes(
-                  "wp-block-gallery has-nested-images"
-                )
+                block.props.className.includes("has-nested-images") &&
+                Array.isArray(block.props.children)
               ) {
-                console.log("include wp-block-gallery has-nested-images");
+                const images = block.props.children
+                  .flatMap((figure) => figure.props.children)
+                  .filter((child) => child.type === "img")
+                  .map((img) => img.props.src);
 
-                // Extraer los atributos src de cada imagen del objeto block
-                const lightboxImages = blocks.reduce((acc, block) => {
-                  if (
-                    block.props &&
-                    block.props.className &&
-                    block.props.className.includes(
-                      "wp-block-gallery has-nested-images"
-                    )
-                  ) {
-                    console.log("include wp-block-gallery has-nested-images");
-
-                    // Check that block.props.children is an array before calling filter
-                    if (Array.isArray(block.props.children)) {
-                      const imgs = block.props.children.filter(
-                        (child) => child.type === "img"
-                      );
-                      const srcs = imgs.map((img) => img.props.src);
-                      return [...acc, ...srcs];
-                    }
-                  }
-                  return acc;
-                }, []);
+                console.log(images);
+                /*  const images = block.props.children.filter(
+                  (child) => child.type === "img"
+                );
+                const lightboxImages = images.map((image) => ({
+                  src: image.props.src,
+                  alt: image.props.alt,
+                })); */
 
                 return (
                   <SwiperSlide key={`has-nested-images-${block.key}`}>
                     <button
                       type="button"
-                      onClick={() => this.setState({ isOpen: true })}
+                      onClick={() =>
+                        this.setState({ isOpen: true, lightboxImages })
+                      }
                     >
                       Open Lightbox
                     </button>
-
-                    <ImageLightbox
-                      images={lightboxImages}
+                    {images}
+                    {/*                     <ImageLightbox
+                      images={images}
                       isOpen={this.state.isOpen}
                       onClose={() => this.setState({ isOpen: false })}
-                    />
-
-                    {/* {block}*/}
+                    /> */}
                   </SwiperSlide>
                 );
               } else {
