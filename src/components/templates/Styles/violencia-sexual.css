@@ -313,6 +313,15 @@ body.naranja h3 {
 .mt-50 {
   margin-top: 50px;
 }
+.box-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-centered button {
+  width: 50vw;
+  height: 30vh;
+}
 pre {
   white-space: pre-wrap;
   /* Since CSS 2.1 */
@@ -331,10 +340,7 @@ pre {
 .App .wp-block-gallery figure.wp-block-image img {
   max-height: 90vh;
 }
-.App .wp-block-image > img {
-  display: none;
-}
-.App img.imagen-zoomeable:hover {
+.App figure.imagen-zoomeable:hover {
   cursor: url(../../../img/hand.png), auto;
 }
 .App .wp-block-audio.audio-mariposa + div {
@@ -346,13 +352,13 @@ pre {
 .App .wp-block-audio::before {
   content: "";
   background-image: url("../../../img/calltoaction-audios.png");
-  width: 25%;
+  width: 40%;
   height: 30vh;
   position: absolute;
-  bottom: -80px;
+  bottom: 0;
   background-repeat: no-repeat;
   background-position: top;
-  left: 20%;
+  left: 0%;
   background-size: contain;
 }
 .App .wp-block-buttons {
@@ -400,6 +406,9 @@ figure ul {
   margin: 0;
   padding: 0;
 }
+.button-sobre {
+  margin: 0 auto;
+}
 figcaption {
   font-size: 0.9rem;
   background: rgba(255, 255, 255, 0.8);
@@ -413,9 +422,9 @@ figcaption {
 @media (max-width: 600px) {
   figcaption {
     font-size: 0.7rem;
-    top: 85vh;
-    left: 0vw;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
+    position: initial;
   }
 }
 .post {
@@ -603,7 +612,6 @@ a.wp-block-button__link {
 .swiper-slide img.thumb {
   max-height: 25%;
   width: auto;
-  display: none;
   margin: 10px auto;
 }
 .swiper-slide img.thumb:first-child {
