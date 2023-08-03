@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import parse, { Element } from "html-react-parser";
-import ImageLightbox from "./ImageLightbox.js";
 
 // Swiper
 import { Parallax, Pagination } from "swiper";
@@ -15,6 +14,9 @@ import Menu from "../molecules/Menu/index.js"; // Importa el componente de menú
 import Mariposa from "../molecules/Mariposa.js";
 
 import Mariposasdecolor from "../atoms/Mariposasdecolor.js";
+
+import ImageLightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 const queryParams = new URLSearchParams(window.location.search);
 const pagina = queryParams.get("pagina");
@@ -40,6 +42,7 @@ class Page extends React.Component {
     type: "",
     lightboxImages: [], // Agrega un estado para almacenar las imágenes de la galería
     isOpen: false, // Agrega un estado para indicar si la galería está abierta o no
+    photoIndex: 0, // Agrega un estado para almacenar el índice de la imagen actual en la galería
   };
 
   componentDidMount() {
@@ -133,30 +136,56 @@ class Page extends React.Component {
                   .map((img) => img.props.src);
 
                 console.log(images);
-                /*  const images = block.props.children.filter(
-                  (child) => child.type === "img"
-                );
-                const lightboxImages = images.map((image) => ({
-                  src: image.props.src,
-                  alt: image.props.alt,
-                })); */
 
                 return (
                   <SwiperSlide key={`has-nested-images-${block.key}`}>
                     <button
                       type="button"
                       onClick={() =>
-                        this.setState({ isOpen: true, lightboxImages })
+                        this.setState({ isOpen: true, lightboxImages: images })
                       }
                     >
                       Open Lightbox
                     </button>
-                    {images}
-                    {/*                     <ImageLightbox
-                      images={images}
-                      isOpen={this.state.isOpen}
-                      onClose={() => this.setState({ isOpen: false })}
-                    /> */}
+
+                    {this.state.isOpen && (
+                      <ImageLightbox
+                        mainSrc={
+                          this.state.lightboxImages[this.state.photoIndex]
+                        }
+                        nextSrc={
+                          this.state.lightboxImages[
+                            (this.state.photoIndex + 1) %
+                              this.state.lightboxImages.length
+                          ]
+                        }
+                        prevSrc={
+                          this.state.lightboxImages[
+                            (this.state.photoIndex +
+                              this.state.lightboxImages.length -
+                              1) %
+                              this.state.lightboxImages.length
+                          ]
+                        }
+                        onCloseRequest={() => this.setState({ isOpen: false })}
+                        onMovePrevRequest={() =>
+                          this.setState({
+                            photoIndex:
+                              (this.state.photoIndex +
+                                this.state.lightboxImages.length -
+                                1) %
+                              this.state.lightboxImages.length,
+                          })
+                        }
+                        onMoveNextRequest={() =>
+                          this.setState({
+                            photoIndex:
+                              (this.state.photoIndex + 1) %
+                              this.state.lightboxImages.length,
+                          })
+                        }
+                      />
+                    )}
                   </SwiperSlide>
                 );
               } else {
