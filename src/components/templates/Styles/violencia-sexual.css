@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Covered By Your Grace';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/coveredbyyourgrace/v15/QGYwz-AZahWOJJI9kykWW9mD6opopoqXSOS0Fg.ttf) format('truetype');
+}
+@font-face {
   font-family: 'Mulish';
   font-style: normal;
   font-weight: 300;
@@ -8,9 +15,9 @@
 @font-face {
   font-family: 'Mulish';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexU1WwaA.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/mulish/v12/1Ptyg83HX_SGhgqO0yLcmjzUAuWexZNRwaA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Prata';
@@ -19,21 +26,191 @@
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/prata/v18/6xKhdSpbNNCT-vWI.ttf) format('truetype');
 }
+.swiper-slide #eje1 {
+  color: white;
+  font-family: "Prata", sans-serif;
+}
+.swiper-slide #eje1::before {
+  background-image: url("../../../img/Path-3492.png");
+  width: 65vw;
+  height: 100vh;
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  margin: 0 -20vw;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+@media (max-width: 600px) {
+  .swiper-slide #eje1::before {
+    background-size: cover;
+    width: 100vw;
+    height: 80vh;
+  }
+}
+.outer1 {
+  width: 500px;
+  position: absolute;
+  animation: floatup1 25s linear infinite, sideways 25s linear infinite,
+    change 5s linear infinite alternate;
+}
+.outer2 {
+  width: 500px;
+  position: absolute;
+  animation: floatup2 20s linear infinite, sideways 20s linear infinite,
+    change 15s linear infinite alternate;
+}
+.outer3 {
+  width: 500px;
+  position: absolute;
+  animation: floatup3 35s linear infinite, sideways 30s linear infinite,
+    change 20s linear infinite alternate;
+}
+.box1 {
+  width: 80px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 30vw;
+}
+.box1::before,
+.box1::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("../../../img/butterfly.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box1::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+.box2 {
+  width: 120px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 60vw;
+}
+.box2::before,
+.box2::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box2::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+.box3 {
+  width: 180px;
+  display: flex;
+  perspective: 500px;
+  margin-right: 70vw;
+}
+.box3::before,
+.box3::after {
+  content: "";
+  padding-top: 56%;
+  flex: 1;
+  background-image: url("https://i.imgur.com/fLNCWNA.png");
+  background-size: 200% 100%;
+  animation: left 0.5s linear infinite alternate;
+  transform-origin: right;
+}
+.box3::after {
+  background-position: right;
+  animation-name: right;
+  transform-origin: left;
+}
+@keyframes left {
+  from {
+    transform: translateZ(80px) rotateY(-10deg);
+  }
+  to {
+    transform: translateZ(0px) rotateY(70deg);
+  }
+}
+@keyframes right {
+  from {
+    transform: translateZ(80px) rotateY(10deg);
+  }
+  to {
+    transform: translateZ(0px) rotateY(-70deg);
+  }
+}
+@keyframes flutter {
+  from {
+    margin-left: 0;
+    margin-top: 100%;
+  }
+  to {
+    margin-left: 100%;
+    margin-top: 0;
+  }
+}
+@keyframes floatup {
+  0% {
+    top: 100%;
+    transform: rotateZ(0deg);
+  }
+  100% {
+    top: -300px;
+    transform: rotateZ(random(360deg));
+  }
+}
+@keyframes floatup2 {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -500px;
+  }
+}
+@keyframes floatup3 {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -800px;
+  }
+}
+@keyframes sideways {
+  from {
+    left: 0;
+  }
+  to {
+    left: 700px;
+  }
+}
+@keyframes change {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
 /**** Global Color ***/
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   color: #422422;
-  font-size: 12px;
-}
-body body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  background-color: #7a157d;
+  transition: background-color 0.5s ease-in-out;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
 }
 body .container {
-  max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
@@ -42,49 +219,110 @@ body h2,
 body h3,
 body h4 {
   font-family: "Prata", serif;
-  font-weight: 400;
+  color: #ffffff;
+  font-weight: 600;
   margin: 0;
-}
-body h1 {
-  font-size: 4rem;
+  letter-spacing: 5px;
 }
 body h2 {
-  font-size: 3rem;
+  font-size: 5rem;
+}
+@media (max-width: 600px) {
+  body h2 {
+    font-size: 4rem;
+  }
+}
+body .titulo-modulo h2 {
+  font-family: "Covered By Your Grace", cursive;
 }
 body h3 {
   font-size: 2rem;
 }
-body p,
-body span,
-body a {
-  font-family: "Mulish", sans-serif;
+@media (max-width: 600px) {
+  body h3 {
+    font-size: 1.5rem;
+  }
 }
 body p {
-  font-size: 1rem;
+  font-size: 1.4rem;
   margin: 0;
   padding: 2vh;
   line-height: 140%;
 }
-body img {
-  max-width: 100%;
-  height: auto;
+@media (max-width: 600px) {
+  body p {
+    font-size: 1rem;
+  }
 }
-body .item {
+body .subtitulo-sec {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+body cite {
+  font-size: 0.9rem;
+}
+@media (max-width: 600px) {
+  body cite {
+    font-size: 0.7rem;
+  }
+}
+body.lila {
+  background-color: #7a157d;
+}
+body.beige {
+  background-color: #d8b69d;
+}
+body.beige h2 {
+  color: #ffffff;
+}
+body.beige h3 {
+  color: #422422;
+}
+body.verde {
+  background-color: #b8c7b7;
+}
+body.verde h2 {
+  color: #2c3f21;
+}
+body.verde h3 {
+  color: #6a7564;
+}
+body.naranja {
+  background-color: #f69b02;
+  color: #3f2771;
+}
+body.naranja h2 {
+  color: #a20027;
+  font-size: 3rem;
+}
+body.naranja h3 {
+  color: #3f2771;
+}
+.item {
   position: relative;
   display: contents;
 }
-body .wp-block-embed-youtube iframe {
+.wp-block-embed-youtube iframe {
   max-width: 100%;
   height: auto;
   min-height: 200px;
 }
-body .sociales {
+.sociales {
   display: none;
 }
-body .mt-50 {
+.mt-50 {
   margin-top: 50px;
 }
-body pre {
+.box-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-centered button {
+  width: 50vw;
+  height: 30vh;
+}
+pre {
   white-space: pre-wrap;
   /* Since CSS 2.1 */
   white-space: -moz-pre-wrap;
@@ -99,19 +337,105 @@ body pre {
 .App {
   margin: 0 auto;
 }
-.App figure img {
-  width: 100%;
-  height: auto;
+.App .wp-block-gallery figure.wp-block-image img {
+  max-height: 90vh;
 }
-.App .post {
+.App figure.imagen-zoomeable:hover {
+  cursor: url(../../../img/hand.png), auto;
+}
+.App .wp-block-audio.audio-mariposa + div {
+  display: none;
+}
+.App .wp-block-embed + div {
+  display: none;
+}
+.App .wp-block-audio::before {
+  content: "";
+  background-image: url("../../../img/calltoaction-audios.png");
+  width: 40%;
+  height: 30vh;
+  position: absolute;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: top;
+  left: 0%;
+  background-size: contain;
+}
+.App .wp-block-buttons {
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), 5%, #ffffff, 100%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #a20027;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+.App .wp-block-buttons:hover {
+  background-color: #d8b69d;
+  color: #ffffff !important;
+}
+.App .wp-block-buttons:active {
+  position: relative;
+  top: 1px;
+}
+.item-imagen {
+  display: contents;
+}
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0 auto;
+  width: 85vw;
+  position: relative;
+}
+figure.visible > img {
+  display: block !important;
+}
+figure.wp-block-audio > figcaption {
+  top: 12vh;
+  left: 46vw;
+}
+figure ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.button-sobre {
+  margin: 0 auto;
+}
+figcaption {
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  width: fit-content;
+  top: 50vh;
+  padding: 10px;
+  left: 70vw;
+  height: fit-content;
+}
+@media (max-width: 600px) {
+  figcaption {
+    font-size: 0.7rem;
+    width: 80%;
+    margin: 0 auto;
+    position: initial;
+  }
+}
+.post {
   padding: 20px 0;
   border-bottom: 1px solid #6a7564;
 }
-.App .bloque {
+.bloque {
   margin: 5px;
   padding: 20px;
 }
-.App .wp-block-button.info {
+.wp-block-button.info {
   background-color: #9b6446;
   width: max-content;
   padding: 8px 30px;
@@ -120,17 +444,116 @@ body pre {
   font-size: 1.1rem;
   border-radius: 15px;
 }
-.swiper {
+.ramas {
+  position: fixed;
+  bottom: -93vh;
+  right: -26vw;
+  z-index: 0;
+}
+.ramas svg {
+  width: 77vw;
+}
+.mariposas-color {
+  background-image: url("../../../img/mariposas-colores.png");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.mariposa-inicio {
+  z-index: 3;
+  position: relative;
+}
+.menu {
+  position: fixed;
+  top: 40vh;
+  left: 4vw;
+  z-index: 9;
+  width: 70px;
+}
+.menu.hide {
+  visibility: hidden;
+}
+.menu .circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+  margin: 10px 0;
+}
+@media (max-width: 767.98px) {
+  .menu .circle {
+    width: 30px;
+    height: 30px;
+  }
+}
+.menu .circle:active .txt {
+  visibility: visible;
+  background-color: #ffffff;
+}
+.menu .circle .txt {
+  position: relative;
+  left: 60px;
+  width: max-content;
+  top: 16px;
+  visibility: hidden;
+  color: #422422;
+  padding: 3px 5px;
+}
+.menu .circle.beige {
   background-color: #d8b69d;
+}
+.menu .circle.beige:active {
+  background-color: #9b6446;
+}
+.menu .circle.green {
+  background-color: #6a7564;
+}
+.menu .circle.green:active {
+  background-color: #2c3f21;
+}
+.menu .circle.orange {
+  background-color: #f69b02;
+}
+.menu .circle.orange:active {
+  background-color: #a20027;
+}
+.swiper {
+  background-color: transparent;
+}
+.swiper iframe {
+  width: 80vw;
+  height: 70vh;
 }
 .swiper .parallax-bg {
   position: absolute;
-  left: 0;
-  top: 100vh;
-  width: 130%;
-  height: 200%;
-  background-size: cover;
+  background-size: contain;
   background-position: top;
+  background-repeat: no-repeat;
+}
+.swiper .parallax-bg.cuerpo1 {
+  left: 37vw;
+  top: 110vh;
+  width: 130%;
+  height: 900vh;
+  background-image: url(../../../img/cuerpo.png);
+}
+.swiper .parallax-bg.cuerpo2 {
+  right: 37vw;
+  top: 610vh;
+  width: 130%;
+  height: 900vh;
+  background-image: url(../../../img/cuerpo.png);
+}
+.swiper .parallax-bg.cuerpo3 {
+  left: 37vw;
+  top: 1310vh;
+  width: 150%;
+  height: 1100vh;
+  background-image: url(../../../img/cuerpo.png);
 }
 .swiper img.thumb {
   max-height: 25%;
@@ -139,7 +562,6 @@ body pre {
   margin: 10px auto;
 }
 .swiper .block-container {
-  min-height: 90%;
   min-height: 90vh;
   margin: 0 10vw;
   display: flex;
@@ -148,65 +570,12 @@ body pre {
 .swiper .block-container p {
   text-align: left;
 }
-.block-container > #slider-intro {
-  width: 100vw;
-  position: absolute;
-  left: 0;
-}
 #slider-intro {
   color: #ffffff;
-  background-color: #7a157d;
-  min-height: 100vh;
-  position: relative;
-  top: 0;
-  width: 100%;
-}
-#slider-intro::before {
-  background-image: url("../../../img/rama_blanca.svg");
-  background-position: 150%;
-  background-repeat: no-repeat;
-  position: absolute;
-  display: inline-block;
-  z-index: 2;
-  background-size: cover;
-  content: "";
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-}
-@media (min-width: 992px) {
-  #slider-intro::before {
-    left: -50vw;
-  }
-}
-#slider-intro::after {
-  background-image: url("../../../img/rama_blanca.svg");
-  background-position: 150%;
-  background-repeat: no-repeat;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
-  position: absolute;
-  display: inline-block;
-  z-index: 2;
-  background-size: cover;
-  content: "";
-  width: 100vw;
-  height: 100vh;
-  right: 0;
-}
-@media (min-width: 992px) {
-  #slider-intro::after {
-    right: -50vw;
-  }
 }
 #slider-intro .wp-block-group__inner-container {
   position: relative;
   display: inline-block;
-  top: 40vh;
 }
 .bgAnimated {
   position: absolute;
@@ -230,30 +599,56 @@ a.wp-block-button__link {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  min-height: 100%;
-  min-height: 90vh;
+  height: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 .swiper-slide img {
-  width: 100%;
+  width: initial;
   height: auto;
+  max-height: 90vh;
 }
 .swiper-slide img.thumb {
   max-height: 25%;
   width: auto;
-  display: none;
   margin: 10px auto;
 }
 .swiper-slide img.thumb:first-child {
   display: block;
 }
-@media (min-width: 576px) {
+.wp-block-quote::before {
+  content: "";
+  background-image: url("../../../img/quote-before.png");
+  position: relative;
+  top: 93px;
+  left: -50px;
+  display: block;
+  width: 300px;
+  height: 195px;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
-@media (min-width: 768px) {
+@-o-keyframes fadeIt {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #ad301b;
+  }
+  100% {
+    background-color: #ffffff;
+  }
 }
-@media (min-width: 992px) {
-}
-@media (min-width: 1200px) {
+@keyframes fadeIt {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #ad301b;
+  }
+  100% {
+    background-color: #ffffff;
+  }
 }
 /*# sourceMappingURL=violencia-sexual.css.map */

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;600&family=Prata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&family=Prata&family=Covered+By+Your+Grace&display=swap");
+@import "./slides.less";
 
 /**** Global Color ***/
 @beige: #d8b69d;
@@ -18,15 +19,12 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: @text-color;
-  font-size: 12px;
-  body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
+  background-color: @lila;
+  transition: background-color 0.5s ease-in-out;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
   .container {
-    max-width: 1000px;
+    //max-width: 1000px;
     margin: 0 auto;
     position: relative;
   }
@@ -36,100 +34,360 @@ body {
   h3,
   h4 {
     font-family: "Prata", serif;
-    font-weight: 400;
+    color: @white;
+    font-weight: 600;
     margin: 0;
+    //text-shadow: 1px 1px 2px @text-color;
+    letter-spacing: 5px;
   }
 
-  h1 {
-    font-size: 4rem;
-  }
   h2 {
-    font-size: 3rem;
+    font-size: 5rem;
+
+    @media (max-width: 600px) {
+      font-size: 4rem;
+    }
+  }
+
+  .titulo-modulo h2 {
+    font-family: "Covered By Your Grace", cursive;
   }
 
   h3 {
     font-size: 2rem;
-  }
-
-  p,
-  span,
-  a {
-    font-family: "Mulish", sans-serif;
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
+    }
   }
 
   p {
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin: 0;
     padding: 2vh;
     line-height: 140%;
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
   }
-
-  // hacks estilos por defecto wordpressv
-  img {
-    max-width: 100%;
-    height: auto;
+  .subtitulo-sec {
+    font-size: 1.5em;
+    color: @white;
   }
-  .item {
-    position: relative;
-    display: contents;
+  cite {
+    font-size: 0.9rem;
+    @media (max-width: 600px) {
+      font-size: 0.7rem;
+    }
   }
-  .wp-block-embed-youtube iframe {
-    max-width: 100%;
-    height: auto;
-    min-height: 200px;
+  &.lila {
+    background-color: @lila;
   }
-  .sociales {
-    display: none;
+  &.beige {
+    background-color: @beige;
+    h2 {
+      color: @white;
+    }
+    h3 {
+      color: @text-color;
+    }
   }
-  .mt-50 {
-    margin-top: 50px;
+  &.verde {
+    background-color: @light-green;
+    h2 {
+      color: @dark-green;
+    }
+    h3 {
+      color: @green;
+    }
   }
-  pre {
-    white-space: pre-wrap; /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-    white-space: -pre-wrap; /* Opera 4-6 */
-    white-space: -o-pre-wrap; /* Opera 7 */
-    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  &.naranja {
+    background-color: @orange;
+    color: @violet;
+    h2 {
+      color: @dark-orange;
+      font-size: 3rem;
+    }
+    h3 {
+      color: @violet;
+    }
   }
 }
+
+// hacks estilos por defecto wordpressv
+
+.item {
+  position: relative;
+  display: contents;
+}
+.wp-block-embed-youtube iframe {
+  max-width: 100%;
+  height: auto;
+  min-height: 200px;
+}
+.sociales {
+  display: none;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.box-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    width: 50vw;
+    height: 30vh;
+  }
+}
+
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
 .App {
   margin: 0 auto;
-  figure img {
-    width: 100%;
-    height: auto;
+  .wp-block-gallery figure.wp-block-image img {
+    max-height: 90vh;
   }
-  .post {
-    padding: 20px 0;
-    border-bottom: 1px solid @green;
+
+  figure.imagen-zoomeable:hover {
+    cursor: url(../../../img/hand.png), auto;
   }
-  .bloque {
-    margin: 5px;
-    padding: 20px;
+
+  .wp-block-audio.audio-mariposa + div {
+    display: none;
   }
-  .wp-block-button {
-    &.info {
-      background-color: @brown;
+  .wp-block-embed + div {
+    display: none;
+  }
+
+  .wp-block-audio::before {
+    content: "";
+    background-image: url("../../../img/calltoaction-audios.png");
+    width: 40%;
+    height: 30vh;
+    position: absolute;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: top;
+    left: 0%;
+    background-size: contain;
+  }
+  .wp-block-buttons {
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.8) ; 5%,
+      rgba(255, 255, 255, 1) ; 100%
+    );
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid @dark-orange;
+    display: inline-block;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+    &:hover {
+      background-color: @beige;
+      color: @white !important;
+    }
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
+}
+.item-imagen {
+  display: contents;
+}
+
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0 auto;
+  width: 85vw;
+  position: relative;
+  &.visible > img {
+    display: block !important;
+  }
+  &.wp-block-audio > figcaption {
+    top: 12vh;
+    left: 46vw;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+.button-sobre {
+  margin: 0 auto;
+}
+figcaption {
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  width: fit-content;
+  top: 50vh;
+  padding: 10px;
+  left: 70vw;
+  height: fit-content;
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+    width: 80%;
+    margin: 0 auto;
+    position: initial;
+  }
+}
+.post {
+  padding: 20px 0;
+  border-bottom: 1px solid @green;
+}
+.bloque {
+  margin: 5px;
+  padding: 20px;
+}
+.wp-block-button {
+  &.info {
+    background-color: @brown;
+    width: max-content;
+    padding: 8px 30px;
+    margin: 0 auto;
+    color: @white;
+    font-size: 1.1rem;
+    border-radius: 15px;
+  }
+}
+
+// RAMAS
+.ramas {
+  position: fixed;
+  bottom: -93vh;
+  right: -26vw;
+  z-index: 0;
+  svg {
+    width: 77vw;
+  }
+}
+
+// MARIPOSAS
+.mariposas-color {
+  background-image: url("../../../img/mariposas-colores.png");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.mariposa-inicio {
+  z-index: 3;
+  position: relative;
+}
+
+// MENU
+.menu {
+  position: fixed;
+  top: 40vh;
+  left: 4vw;
+  z-index: 9;
+  width: 70px;
+  &.hide {
+    visibility: hidden;
+  }
+  .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 10px 0;
+    @media (max-width: 767.98px) {
+      width: 30px;
+      height: 30px;
+    }
+    &:active {
+      .txt {
+        visibility: visible;
+        background-color: @white;
+      }
+    }
+    .txt {
+      position: relative;
+      left: 60px;
       width: max-content;
-      padding: 8px 30px;
-      margin: 0 auto;
-      color: @white;
-      font-size: 1.1rem;
-      border-radius: 15px;
+      top: 16px;
+      visibility: hidden;
+      color: @text-color;
+      padding: 3px 5px;
+    }
+    &.beige {
+      background-color: @beige;
+      &:active {
+        background-color: @brown;
+      }
+    }
+    &.green {
+      background-color: @green;
+      &:active {
+        background-color: @dark-green;
+      }
+    }
+    &.orange {
+      background-color: @orange;
+      &:active {
+        background-color: @dark-orange;
+      }
     }
   }
 }
 
 // BLOQUES SWIPER
 .swiper {
-  background-color: @beige;
+  background-color: transparent;
+
+  // IFRAMES
+
+  iframe {
+    width: 80vw;
+    height: 70vh;
+  }
+
   .parallax-bg {
     position: absolute;
-    left: 0;
-    top: 100vh;
-    width: 130%;
-    height: 200%;
-    background-size: cover;
+    background-size: contain;
     background-position: top;
+    background-repeat: no-repeat;
+
+    &.cuerpo1 {
+      left: 37vw;
+      top: 110vh;
+      width: 130%;
+      height: 900vh;
+      background-image: url(../../../img/cuerpo.png);
+    }
+    &.cuerpo2 {
+      right: 37vw;
+      top: 610vh;
+      width: 130%;
+      height: 900vh;
+      background-image: url(../../../img/cuerpo.png);
+    }
+    &.cuerpo3 {
+      left: 37vw;
+      top: 1310vh;
+      width: 150%;
+      height: 1100vh;
+      background-image: url(../../../img/cuerpo.png);
+    }
   }
 
   img.thumb {
@@ -139,7 +397,6 @@ body {
     margin: 10px auto;
   }
   .block-container {
-    min-height: 90%;
     min-height: 90vh;
     margin: 0 10vw;
     display: flex;
@@ -149,65 +406,19 @@ body {
     }
   }
 }
+
 // INTRO
 
-.block-container > #slider-intro {
-  width: 100vw;
-  position: absolute;
-  left: 0;
-}
 #slider-intro {
   color: @white;
-  background-color: @lila;
-  min-height: 100vh;
-  position: relative;
-  top: 0;
-  width: 100%;
 
-  &::before {
-    background-image: url("../../../img/rama_blanca.svg");
-    background-position: 150%;
-    background-repeat: no-repeat;
-    position: absolute;
-    display: inline-block;
-    z-index: 2;
-    background-size: cover;
-    content: "";
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    @media (min-width: 992px) {
-      left: -50vw;
-    }
-  }
-  &::after {
-    background-image: url("../../../img/rama_blanca.svg");
-    background-position: 150%;
-    background-repeat: no-repeat;
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
-    position: absolute;
-    display: inline-block;
-    z-index: 2;
-    background-size: cover;
-    content: "";
-    width: 100vw;
-    height: 100vh;
-    right: 0;
-    @media (min-width: 992px) {
-      right: -50vw;
-    }
-  }
   .wp-block-group__inner-container {
     position: relative;
     display: inline-block;
-    top: 40vh;
+    //top: 40vh;
   }
 }
+
 .bgAnimated {
   position: absolute;
   right: 44vw;
@@ -227,18 +438,18 @@ a.wp-block-button__link {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  min-height: 100%;
-  min-height: 90vh;
+  height: 100%;
   display: flex;
   align-items: center;
+  overflow: hidden;
   img {
-    width: 100%;
+    width: initial;
     height: auto;
+    max-height: 90vh;
   }
   img.thumb {
     max-height: 25%;
     width: auto;
-    display: none;
     margin: 10px auto;
     &:first-child {
       display: block;
@@ -246,22 +457,38 @@ a.wp-block-button__link {
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  //...
+.wp-block-quote::before {
+  content: "";
+  background-image: url("../../../img/quote-before.png");
+  position: relative;
+  top: 93px;
+  left: -50px;
+  display: block;
+  width: 300px;
+  height: 195px;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  //...
+@-o-keyframes fadeIt {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #ad301b;
+  }
+  100% {
+    background-color: #ffffff;
+  }
 }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  //...
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  //...
+@keyframes fadeIt {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #ad301b;
+  }
+  100% {
+    background-color: #ffffff;
+  }
 }
