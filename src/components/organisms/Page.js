@@ -18,6 +18,8 @@ import Mariposasdecolor from "../atoms/Mariposasdecolor.js";
 import ImageLightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 
+import sobre from "../../img/sobre2.jpg";
+
 const queryParams = new URLSearchParams(window.location.search);
 const pagina = queryParams.get("pagina");
 
@@ -139,14 +141,19 @@ class Page extends React.Component {
 
                 return (
                   <SwiperSlide key={`has-nested-images-${block.key}`}>
-                    <button
-                      type="button"
+                    <div
+                      className="button-sobre"
                       onClick={() =>
-                        this.setState({ isOpen: true, lightboxImages: images })
+                        this.setState({
+                          isOpen: true,
+                          lightboxImages: images,
+                          photoIndex: 0,
+                        })
                       }
                     >
-                      Open Lightbox
-                    </button>
+                      <p>Haga click en el sobre para leer las cartas</p>
+                      <img className="sobre" src={sobre} alt="sobre" />
+                    </div>
 
                     {this.state.isOpen && (
                       <ImageLightbox

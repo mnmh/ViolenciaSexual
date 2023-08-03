@@ -406,6 +406,9 @@ figure ul {
   margin: 0;
   padding: 0;
 }
+.button-sobre {
+  margin: 0 auto;
+}
 figcaption {
   font-size: 0.9rem;
   background: rgba(255, 255, 255, 0.8);
