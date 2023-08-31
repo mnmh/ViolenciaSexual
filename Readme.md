@@ -19,3 +19,4 @@ Estrcutura de la url:
 El paquete tiene fija la versión de NPM 16, así que deberá gestionarse con NVM
 
     nvm use 16
+
